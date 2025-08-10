@@ -1,0 +1,12 @@
+*{
+    background-color: #2e2e2e;
+    margin: 0px;
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: whitesmoke 0px 0px 5px;
+}
+
+.asfh{
+    display: flex;
+}
