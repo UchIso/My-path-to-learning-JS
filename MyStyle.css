@@ -1,10 +1,10 @@
 body{
     background-color: #2e2e2e;
     box-shadow: whitesmoke 0px 0px 5px;
-}
-
+    } 
+    
 .allDivs{
-    /* display: inline-block; */
+    display: inline-block;
     align-items: center;
     justify-content: center;
     padding: 10px 
