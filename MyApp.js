@@ -1,6 +1,6 @@
 
 let allDivs = document.getElementById('allDivs')
-console.log(allDivs.childNodes);
+// console.log(allDivs.childNodes);
 
 function CreateNewDiw(idName , className , methodName){
     let newDiv = document.createElement('div')
@@ -33,59 +33,54 @@ function classDiv(classDivSet){
     classDivSet.style.boxShadow = "whitesmoke 0px 0px 10px"
     allDivs.appendChild(classDivSet)
     allDivs.appendChild(document.createElement('hr'))
-    
-    // function metDiv(metDivSet){
 
-        let metDivs = document.createElement('div')
+    console.log()
         
-        document.querySelectorAll(".infoDiv").forEach(target => infoDiv(target))
-        function infoDiv(infoDivSet){
+    document.querySelectorAll(".infoDiv").forEach(target => infoDiv(target))
+    function infoDiv(infoDivSet){
 
-            let infoDivs = document.createElement('div')
-            classDivSet.appendChild(infoDivs)
+        let infoDivs = document.createElement('div')
+        classDivSet.appendChild(infoDivs)
             
-            infoDivSet.style.minWidth = "225px";
-            infoDivSet.style.width = "50%";
-            infoDivSet.style.minHeight = "200px"
-            infoDivSet.style.height = "85%"
-            infoDivSet.style.margin = "10px"
-            infoDivSet.style.borderRadius = "20px"
-            infoDivSet.style.border = "whitesmoke 1px solid"
-            infoDivSet.style.boxShadow = "whitesmoke 0px 0px 5px"
-            
-            console.log(infoDivSet.style.minWidth < infoDivSet.style.width);
+        infoDivSet.style.minWidth = "225px";
+        infoDivSet.style.width = "50%";
+        infoDivSet.style.minHeight = "200px"
+        infoDivSet.style.height = "85%"
+        infoDivSet.style.margin = "10px"
+        infoDivSet.style.borderRadius = "20px"
+        infoDivSet.style.border = "whitesmoke 1px solid"
+        infoDivSet.style.boxShadow = "whitesmoke 0px 0px 5px"
 
-            document.querySelectorAll('.refCode').forEach(target => refCode(target))
-            function refCode(refCodeSet){
-                refCodeSet.style.color ="green"
-                refCodeSet.style.fontFamily ="Courier New"
-            }
+        document.querySelectorAll('.refCode').forEach(target => refCode(target))
+        function refCode(refCodeSet){
+            refCodeSet.style.color ="green"
+            refCodeSet.style.fontFamily ="Courier New"
+        }
             
-            if (classDivSet.id === infoDivSet.id) {
-                infoDivs.appendChild(infoDivSet)
-            }
-
+        if (classDivSet.id === infoDivSet.id) {
+            infoDivs.appendChild(infoDivSet)
         }
 
-        document.querySelectorAll(".returnDiv").forEach(target => returnDiv(target))
-        function returnDiv(returnDivSet){
-        
-            returnDivSet.style.minWidth = "225px";
-            returnDivSet.style.width = "50%";
-            returnDivSet.style.minHeight = "200px"
-            returnDivSet.style.height = "85%"
-            returnDivSet.style.margin = "10px"
-            returnDivSet.style.borderRadius = "20px"
-            returnDivSet.style.border = "whitesmoke 1px solid"
-            returnDivSet.style.boxShadow = "whitesmoke 0px 0px 5px"
-            returnDivSet.style.backgroundColor ="#0e0e0e"
-        
-            if (classDivSet.id === returnDivSet.id) {
-                classDivSet.appendChild(returnDivSet)
-            }
+    }
 
+    document.querySelectorAll(".returnDiv").forEach(target => returnDiv(target))
+    function returnDiv(returnDivSet){
+        
+        returnDivSet.style.minWidth = "225px";
+        returnDivSet.style.width = "50%";
+        returnDivSet.style.minHeight = "200px"
+        returnDivSet.style.height = "85%"
+        returnDivSet.style.margin = "10px"
+        returnDivSet.style.borderRadius = "20px"
+        returnDivSet.style.border = "whitesmoke 1px solid"
+        returnDivSet.style.boxShadow = "whitesmoke 0px 0px 5px"
+        returnDivSet.style.backgroundColor ="#0e0e0e"
+        
+        if (classDivSet.id === returnDivSet.id) {
+            classDivSet.appendChild(returnDivSet)
         }
-    // }
+
+    }
 }
 
 // function checkClass(targetClass){if(targetClass.className === "classDiv") classDiv(targetClass)}
@@ -95,12 +90,12 @@ let StrInfo2 = new CreateNewDiw("strMetods","infoDiv")
 let StrInfo3 = new CreateNewDiw("strMetods","infoDiv","trin")
 let StrInfo4 = new CreateNewDiw("strMetods","infoDiv")
 let StrInfo5 = new CreateNewDiw("strMetods","infoDiv")
+let StrReturn = new CreateNewDiw("strMetods","returnDiv")
 let StrDiv = new CreateNewDiw("strMetods","classDiv")
-let NumDiv = new CreateNewDiw("numMetods","classDiv")
+let NumDiv = new CreateNewDiw("numMetods","classDiv")   
 let BoolDiv = new CreateNewDiw("boolMetods","classDiv")
 let ObjDiv = new CreateNewDiw("objMetods","classDiv")
 let ArrDiv = new CreateNewDiw("arrMetods","classDiv")
-let StrReturn = new CreateNewDiw("strMetods","returnDiv")
 
 
 
