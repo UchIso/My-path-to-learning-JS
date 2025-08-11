@@ -119,7 +119,33 @@
 let allDivs = document.getElementById('allDivs')
 
 function CreateElementFunc(type,idName,className,methodName,){
-const elementType = allDivs.appendChild(document.createElement(type))
-elementType.id(idName)
-elementType.classList
+    const elementType = allDivs.appendChild(document.createElement(type))
+    elementType.id = idName
+    elementType.className = className
+    elementType.classList.add(className,methodName)
+    // console.log(elementType);
 }
+
+function SameClass(target){
+    console.log(target)
+    let elementss = []
+    
+    target.forEach(elements => {
+        console.log(elements.id);
+        elementss.push(elements)
+        
+    });
+    console.log(elementss.length > 1);
+    if (elementss.length > 2) {
+        console.log(allDivs.childNodes);
+        
+    }
+}
+
+
+CreateElementFunc('div','StrMethods','ClassDiv','Trim')
+CreateElementFunc('div','StrMethods','ClassDiv','Trim')
+CreateElementFunc('div','StrMethods','ClassDiv','Trim')
+CreateElementFunc('div','StrMethods','ClassDiv','ttTrim')
+
+SameClass(allDivs.querySelectorAll('div'))
