@@ -9,3 +9,8 @@ body{
     justify-content: center;
     padding: 10px 
 }
+
+hr{
+    margin: 20px;
+    box-shadow: whitesmoke 0px 0px 10px ;
+}
