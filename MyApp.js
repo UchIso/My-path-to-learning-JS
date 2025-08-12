@@ -132,7 +132,7 @@ function CreateElementFunc(type,idName,className,methodName,idNum){
 }
 
 function SameClass(target){
-    console.log(target)
+    // console.log(target)
     let className
     let elements = allDivs.querySelectorAll('div');
     elements.forEach(element => {
@@ -148,38 +148,33 @@ function SameClass(target){
 }
 
 CreateElementFunc('div','StrMethods','ClassDiv','Trim')
-CreateElementFunc('div','StrMethods','ClassDiv','Push')
+CreateElementFunc('div','ArrMethods','ClassDiv','Push')
 CreateElementFunc('div','StrMethods','ClassDiv','Trim')
-CreateElementFunc('div','StrMethods','ClassDiv','Push')
-CreateElementFunc('div','StrMethods','ClassDiv','Pop')
+CreateElementFunc('div','ArrMethods','ClassDiv','Push')
+CreateElementFunc('div','ArrMethods','InfoDiv','Push')
+CreateElementFunc('div','ArrMethods','ClassDiv','Pop')
 
 
-let target = []
 let className = []
-let elements = allDivs.querySelectorAll('div');
-elements.forEach(element => {
-    className.push(element)
-    target.push(element.classList[1])
-});
-
+let targets = allDivs.childNodes
+let elements = allDivs.childNodes;
+let target = []
+targets.forEach(elementt =>{
+    target.push(elementt.id)
+})
 console.log(target);
 
-for(let i in className){
-    // console.log(className[i].classList[1]);
-    // console.log(className[i].classList[i]);
-    console.log(className[i].classList[1]);
-    
-    if (className[i].classList[i] == className[i].classList[1]) {
-        // console.log("yes");
-        // console.log(className[i].classList[1]);
-        // console.log([i].classList[1]);
-        
+elements.forEach(element => {
+    if (element.classList[0] !== "ClassDiv") {
+        if (element.id == target.values) {
+            console.log(`This is: ${target}`);
+            
+            
+        }
     }
-    // if (i >= 1) {
-        // let lala = className[i].parentNode
-        // lala.removeChild(className[i])
-        // console.log(lala);  
-    // }
-    
-}
+});
+
+
+
+
     

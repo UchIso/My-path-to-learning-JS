@@ -24,3 +24,16 @@ body{
     border: whitesmoke  solid 1px;
     box-shadow: whitesmoke 0px 0px 10px;
 }
+
+.InfoDiv{
+    background-color: #1e1e1e;
+    width: 100%;
+    min-width: 350px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    border: whitesmoke  solid 1px;
+    box-shadow: whitesmoke 0px 0px 10px;
+}
