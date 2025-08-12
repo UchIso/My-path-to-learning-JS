@@ -127,18 +127,33 @@ function CreateElementFunc(type,idName,className,methodName,idNum){
     elementType.className = className
     idNum = elements.length
     elementType.classList.add(className,methodName,idNum)
-    // console.log(elementType);
-    SameClass(idName)
+    // console.log(elementType);\
+    allDivs.appendChild(document.createElement('hr'))
+    // SameClass(idName)
 }
 
 function SameClass(target){
-    // console.log(target)
+
+    console.log(target.id);
+    
+
+    let idName
     let className
     let elements = allDivs.querySelectorAll('div');
     elements.forEach(element => {
-       className = element.id
+       idName = element.id
+       className = element.classList[0]
     });
-
+    // console.log(idName);
+    // console.log(className);
+    // elements.forEach(element2 => {console.log(element2.classList[1])});
+     let pupu = className.parentElement
+    console.log(pupu);
+    
+    
+    if (className !== 'ClassDiv') {
+        
+    }
     // if(){console.log("HEHEHEH")};
     // let nana = []
     // if(className === target){
@@ -147,34 +162,10 @@ function SameClass(target){
     // }
 }
 
-CreateElementFunc('div','StrMethods','ClassDiv','Trim')
+let strTrim = CreateElementFunc('div','StrMethods','ClassDiv','Trim')
 CreateElementFunc('div','ArrMethods','ClassDiv','Push')
-CreateElementFunc('div','StrMethods','ClassDiv','Trim')
+CreateElementFunc('div','StrMethods','InfoDiv','Trim')
 CreateElementFunc('div','ArrMethods','ClassDiv','Push')
 CreateElementFunc('div','ArrMethods','InfoDiv','Push')
 CreateElementFunc('div','ArrMethods','ClassDiv','Pop')
-
-
-let className = []
-let targets = allDivs.childNodes
-let elements = allDivs.childNodes;
-let target = []
-targets.forEach(elementt =>{
-    target.push(elementt.id)
-})
-console.log(target);
-
-elements.forEach(element => {
-    if (element.classList[0] !== "ClassDiv") {
-        if (element.id == target.values) {
-            console.log(`This is: ${target}`);
-            
-            
-        }
-    }
-});
-
-
-
-
-    
+SameClass(strTrim)
