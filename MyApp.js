@@ -118,34 +118,61 @@
 
 let allDivs = document.getElementById('allDivs')
 
-function CreateElementFunc(type,idName,className,methodName,){
+function CreateElementFunc(type,idName,className,methodName,idNum){
+
     const elementType = allDivs.appendChild(document.createElement(type))
+    let elements = allDivs.querySelectorAll('div');
+
     elementType.id = idName
     elementType.className = className
-    elementType.classList.add(className,methodName)
+    idNum = elements.length
+    elementType.classList.add(className,methodName,idNum)
     // console.log(elementType);
+    SameClass(idName)
 }
 
 function SameClass(target){
     console.log(target)
-    let elementss = []
-    
-    target.forEach(elements => {
-        console.log(elements.id);
-        elementss.push(elements)
-        
+    let className
+    let elements = allDivs.querySelectorAll('div');
+    elements.forEach(element => {
+       className = element.id
     });
-    console.log(elementss.length > 1);
-    if (elementss.length > 2) {
-        console.log(allDivs.childNodes);
+
+    // if(){console.log("HEHEHEH")};
         
-    }
+
+    // if(className == target){
+    //     console.log("HEHEH");
+    //     allDivs.removeChild(2)
+    // }
 }
 
+CreateElementFunc('div','StrMethods','ClassDiv','Trim')
+CreateElementFunc('div','StrMethods','ClassDiv','Push')
+CreateElementFunc('div','StrMethods','ClassDiv','Trim')
+CreateElementFunc('div','StrMethods','ClassDiv','Push')
 
-CreateElementFunc('div','StrMethods','ClassDiv','Trim')
-CreateElementFunc('div','StrMethods','ClassDiv','Trim')
-CreateElementFunc('div','StrMethods','ClassDiv','Trim')
-CreateElementFunc('div','StrMethods','ClassDiv','ttTrim')
 
-SameClass(allDivs.querySelectorAll('div'))
+    let className = []
+    let elements = allDivs.querySelectorAll('div');
+    elements.forEach(element => {
+        className.push(element)
+    });
+
+    for(let i in className){
+        console.log(className[i].classList[1]);
+        console.log(className[i].classList[i]);
+        
+        if (className[i].classList[i] == className[i].classList[1]) {
+            console.log("yes");
+            
+        }
+        // if (i >= 1) {
+            // let lala = className[i].parentNode
+            // lala.removeChild(className[i])
+            // console.log(lala);  
+        // }
+        
+    }
+    
