@@ -140,11 +140,10 @@ function SameClass(target){
     });
 
     // if(){console.log("HEHEHEH")};
-        
-
-    // if(className == target){
-    //     console.log("HEHEH");
-    //     allDivs.removeChild(2)
+    // let nana = []
+    // if(className === target){
+    //     nana.push(className)
+    //     console.log(nana);
     // }
 }
 
@@ -152,27 +151,35 @@ CreateElementFunc('div','StrMethods','ClassDiv','Trim')
 CreateElementFunc('div','StrMethods','ClassDiv','Push')
 CreateElementFunc('div','StrMethods','ClassDiv','Trim')
 CreateElementFunc('div','StrMethods','ClassDiv','Push')
+CreateElementFunc('div','StrMethods','ClassDiv','Pop')
 
 
-    let className = []
-    let elements = allDivs.querySelectorAll('div');
-    elements.forEach(element => {
-        className.push(element)
-    });
+let target = []
+let className = []
+let elements = allDivs.querySelectorAll('div');
+elements.forEach(element => {
+    className.push(element)
+    target.push(element.classList[1])
+});
 
-    for(let i in className){
-        console.log(className[i].classList[1]);
-        console.log(className[i].classList[i]);
-        
-        if (className[i].classList[i] == className[i].classList[1]) {
-            console.log("yes");
-            
-        }
-        // if (i >= 1) {
-            // let lala = className[i].parentNode
-            // lala.removeChild(className[i])
-            // console.log(lala);  
-        // }
+console.log(target);
+
+for(let i in className){
+    // console.log(className[i].classList[1]);
+    // console.log(className[i].classList[i]);
+    console.log(className[i].classList[1]);
+    
+    if (className[i].classList[i] == className[i].classList[1]) {
+        // console.log("yes");
+        // console.log(className[i].classList[1]);
+        // console.log([i].classList[1]);
         
     }
+    // if (i >= 1) {
+        // let lala = className[i].parentNode
+        // lala.removeChild(className[i])
+        // console.log(lala);  
+    // }
+    
+}
     
