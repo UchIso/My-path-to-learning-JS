@@ -1,13 +1,24 @@
 body{
     background-color: #2e2e2e;
-    box-shadow: whitesmoke 0px 0px 5px
+    border: solid 1px whitesmoke;
+    /* box-shadow: whitesmoke 0px 0px 5px; */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 } 
     
 .allDivs{
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    border-radius: 20px;
+    border:whitesmoke solid 1px;
+    box-shadow: whitesmoke 0px 0px 15px;
     display: grid;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 20px;
     grid:300px/ 100%;
     grid-gap: 20px; 
 }
@@ -41,4 +52,5 @@ body{
 hr{
     width: 100%;
     box-shadow: whitesmoke 0px 0px 5px;
+    border: 1px solid whitesmoke;
 }
