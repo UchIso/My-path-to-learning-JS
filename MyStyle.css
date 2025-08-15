@@ -24,6 +24,7 @@ body{
 }
 
 .ClassDiv{
+    position: relative;
     background-color: #3e3e3e;
     width: 100%;
     min-width: 750px;
@@ -50,6 +51,7 @@ body{
 }
 
 .ReturnDiv{
+    position: relative;
     background-color: #0e0e0e;
     width: 100%;
     height: 300px;
@@ -64,4 +66,15 @@ hr{
     width: 100%;
     box-shadow: whitesmoke 0px 0px 5px;
     border: 1px solid whitesmoke;
+}
+
+.MethotInfo{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 15px;
+    position: relative;
+    max-width: 50%;
+    /* max-height: 250px; */
+    margin: 10px;
+    background-color: grey;
+    border-radius: 15px;
 }
