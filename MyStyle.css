@@ -1,80 +1,104 @@
-body{
+body {
+    margin: 0;
+    padding: 0;
     background-color: #2e2e2e;
-    border: solid 1px whitesmoke;
-    /* box-shadow: whitesmoke 0px 0px 5px; */
-    padding: 15px;
+    min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-} 
-    
-.allDivs{
+    align-items: center;
+}
+
+.allDivs {
+    margin: 1%;
+    /* max-width: ;  */
     width: 100%;
-    height: 100%;
-    /* background-color: red; */
     border-radius: 20px;
-    border:whitesmoke solid 1px;
+    border: whitesmoke solid 1px;
     box-shadow: whitesmoke 0px 0px 15px;
     display: grid;
-    align-items: center;
-    justify-content: center;
+    grid-gap: 20px;
     padding: 20px;
-    grid:300px/ 100%;
-    grid-gap: 20px; 
+    box-sizing: border-box;
 }
 
 .ClassDiv{
-    position: relative;
     background-color: #3e3e3e;
+    border-radius: 20px;
+    border: whitesmoke solid 1px;
+    box-shadow: whitesmoke 0px 0px 10px;
+    padding: 20px;
+    box-sizing: border-box;
+
     width: 100%;
-    min-width: 750px;
     min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
-    border: whitesmoke  solid 1px;
-    box-shadow: whitesmoke 0px 0px 10px;
+    margin: auto; 
 }
 
 .InfoDiv{
-    background-color: #1e1e1e;
-    width: 100%;
-    min-width: 350px;
+    background-color: #a2a2a2;
+    border-radius: 20px;
+    border: whitesmoke solid 1px;
+    box-shadow: whitesmoke 0px 0px 10px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    width: 50%;
     min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
-    border: whitesmoke solid 1px;
-    box-shadow: whitesmoke 0px 0px 10px;
+    margin: auto; 
 }
 
 .ReturnDiv{
-    position: relative;
     background-color: #0e0e0e;
-    width: 100%;
-    height: 300px;
-    display: flex;
-    align-items: center;
     border-radius: 20px;
     border: whitesmoke solid 1px;
     box-shadow: whitesmoke 0px 0px 10px;
-}   
+    padding: 20px;
+    box-sizing: border-box;
 
-hr{
-    width: 100%;
-    box-shadow: whitesmoke 0px 0px 5px;
-    border: 1px solid whitesmoke;
+    width: 50%;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto; 
 }
 
-.MethotInfo{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.AdderSet {
+    background-color: #5b5b5b;
+    border-radius: 20px;
+    border: whitesmoke solid 1px;
+    box-shadow: whitesmoke 0px 0px 10px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto; 
+}
+
+hr {
+    width: 100%;
+    box-shadow: whitesmoke 0px 0px 5.5px;
+    border-radius: 10px;
+    border: 1px solid whitesmoke;
+    margin: 20px 0;
+}
+
+.MethotInfo {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 15px;
-    position: relative;
-    max-width: 50%;
-    /* max-height: 250px; */
-    margin: 10px;
     background-color: grey;
     border-radius: 15px;
+    margin: 10px auto;
+    max-width: 500px;
+    box-sizing: border-box;
 }
