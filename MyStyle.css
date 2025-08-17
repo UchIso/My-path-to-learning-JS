@@ -16,10 +16,12 @@ body {
     box-shadow: whitesmoke 0px 0px 15px;
     display: grid;
     grid-gap: 20px;
-    padding: 20px;
+    /* padding: 20px; */
+    padding: 0px 20px 20px 20px;
     box-sizing: border-box;
 }
 
+.Container,
 .ClassDiv,
 .AdderSet{
     border-radius: 20px;
@@ -34,15 +36,22 @@ body {
     align-items: center;
     justify-content: center;
     margin: auto;
+    gap: 20px;
 }
 
 .ClassDiv{
     background-color: #3e3e3e; 
-    gap: 20px;
 }
 .AdderSet {
+    border-radius: 0px 0px 20px 20px;
     background-color: #5b5b5b;
-    display: block;
+    display: grid;
+    grid-gap: 5px;
+}
+.Container{
+    width:max-content;
+    max-width: 1300px;
+    min-height: 0px;
 }
 
 .ReturnDiv,
@@ -52,7 +61,7 @@ body {
     box-shadow:inset whitesmoke 0px 0px 10px;
     padding: 20px;
     box-sizing: border-box;
-    
+
     width: 50%;
     min-height: 300px;
     display: flex;
@@ -64,11 +73,17 @@ body {
 .InfoDiv{
     background-color: #a2a2a2;
 }
-
 .ReturnDiv{
     background-color: #0e0e0e; 
 }
 
+.Kategory{
+    background-color: #6e6e6e;
+    border-radius: 20px;
+    border: whitesmoke 1px solid;
+    box-shadow: whitesmoke 0px 0px 5px;
+    padding: 5px 10px 5px 10px;
+}
 
 hr {
     width: 100%;
@@ -78,18 +93,12 @@ hr {
     margin: 20px 0;
 }
 
-.Container{
-    display: block;
-}
-
 .MethotInfo {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding:10px;
     background-color: #5a5a5a;
     border-radius: 15px 15px 0px 15px;
-    margin: 10px auto;
     max-width: 50%;
-    /* max-width: 500px; */
     min-width: 250px;
     min-height: 40px;
     box-sizing: border-box;
@@ -100,9 +109,7 @@ hr {
     padding:10px;
     background-color: darkgrey;
     border-radius: 15px 15px 0px 15px;
-    margin: 10px auto;
     max-width: 50%;
-    /* max-width: 500px; */
     min-width: 250px;
     min-height: 40px;
     box-sizing: border-box;
