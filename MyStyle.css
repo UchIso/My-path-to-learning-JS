@@ -8,6 +8,17 @@ body {
     align-items: center;
 }
 
+.ClassDiv,
+.allDivs,
+.glass{
+    background: linear-gradient(90deg,rgba(255,255,255,0.1), rgba(255, 255, 255, 0.09),rgba(255,255,255,0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
 .allDivs {
     margin: 1%;
     width: 100%;
@@ -16,7 +27,6 @@ body {
     box-shadow: whitesmoke 0px 0px 15px;
     display: grid;
     grid-gap: 20px;
-    /* padding: 20px; */
     padding: 0px 20px 20px 20px;
     box-sizing: border-box;
 }
@@ -40,7 +50,7 @@ body {
 }
 
 .ClassDiv{
-    background-color: #3e3e3e; 
+    /* background-color: #3e3e3e;  */
 }
 .AdderSet {
     border-radius: 0px 0px 20px 20px;
@@ -71,10 +81,11 @@ body {
 }
 
 .InfoDiv{
-    background-color: #a2a2a2;
+    background:linear-gradient(135deg,rgba(46,46,46,0.1),rgba(46,46,46,0.5));
 }
 .ReturnDiv{
-    background-color: #0e0e0e; 
+    background:linear-gradient(-135deg,rgba(0,0,0,0.1),rgba(0,0,0,0.7)) ; 
+    font-family:'Courier New', Courier, monospace;
 }
 
 .Kategory{
@@ -113,4 +124,6 @@ hr {
     min-width: 250px;
     min-height: 40px;
     box-sizing: border-box;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 15px;
 }
