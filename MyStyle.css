@@ -113,6 +113,8 @@ hr {
     min-width: 250px;
     min-height: 40px;
     box-sizing: border-box;
+    scrollbar-face-color:red ;
+    /* scrollbar-shadow-color: red ; */
 }
 
 .MethotBack{
@@ -126,4 +128,15 @@ hr {
     box-sizing: border-box;
     font-family:'Courier New', Courier, monospace;
     font-size: 15px;
+}
+
+textarea{
+        transition: 0.1s;
+}
+
+textarea:focus{
+    background-color: #2e2e2e;
+    border: white solid 1px;
+    box-shadow: white 0px 0px 10px;
+    transition: 0.1s;
 }
