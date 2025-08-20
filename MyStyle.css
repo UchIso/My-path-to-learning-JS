@@ -8,6 +8,14 @@ body {
     align-items: center;
 }
 
+hr {
+    width: 100%;
+    box-shadow: whitesmoke 0px 0px 5.5px;
+    border-radius: 10px;
+    border: 1px solid whitesmoke;
+    margin: 20px 0;
+}
+
 .ClassDiv,
 .allDivs,
 .glass{
@@ -88,55 +96,52 @@ body {
     font-family:'Courier New', Courier, monospace;
 }
 
+
+.Kategory,
+.MethotBack,
+.MethotInfo{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding:10px;
+    border-radius: 15px 15px 0px 15px;
+    /* max-width: 50%; */
+    min-width: 250px;
+    min-height: 40px;
+    box-sizing: border-box;
+    transition: border .3s ease-in-out;
+}
+
 .Kategory{
-    background-color: #6e6e6e;
+    background:linear-gradient(135deg,rgba(110,110,110,0.7),rgba(110,110,110,0)) ;
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 20px;
-    border: whitesmoke 1px solid;
-    box-shadow: whitesmoke 0px 0px 5px;
-    padding: 5px 10px 5px 10px;
+    padding: 5px 15px 5px 15px;
+    font-size: 20px;
+    min-width: 100%;
 }
-
-hr {
-    width: 100%;
-    box-shadow: whitesmoke 0px 0px 5.5px;
-    border-radius: 10px;
-    border: 1px solid whitesmoke;
-    margin: 20px 0;
-}
-
 .MethotInfo {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding:10px;
-    background-color: #5a5a5a;
-    border-radius: 15px 15px 0px 15px;
-    max-width: 50%;
-    min-width: 250px;
-    min-height: 40px;
-    box-sizing: border-box;
-    scrollbar-face-color:red ;
-    /* scrollbar-shadow-color: red ; */
+    background:linear-gradient(135deg,rgba(46,46,46,0.1),rgba(46,46,46,0.5));
 }
-
 .MethotBack{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding:10px;
-    background-color: darkgrey;
-    border-radius: 15px 15px 0px 15px;
-    max-width: 50%;
-    min-width: 250px;
-    min-height: 40px;
-    box-sizing: border-box;
+    background:linear-gradient(135deg, rgba(0,0,0,0.7),rgba(0,0,0,0.1)) ;
     font-family:'Courier New', Courier, monospace;
     font-size: 15px;
 }
 
-textarea{
-        transition: 0.1s;
+.Kategory:focus,
+.MethotBack:focus,
+.MethotInfo:focus{
+    background:linear-gradient(90deg, rgba(255,255,255,0.1),rgba(255,255,255,0)) ;
+    box-shadow: white 0px 0px 10px;
+    border-color: white;
+    transition: border .9s ease-in-out;
 }
 
-textarea:focus{
-    background-color: #2e2e2e;
-    border: white solid 1px;
-    box-shadow: white 0px 0px 10px;
-    transition: 0.1s;
+.Container{
+    display: grid;
+    grid-template-areas: "Info Return" "Add Delete";
+    grid-template-columns: 50% 50%;
+}
+.Container > textarea.MethotInfo{
+    grid-area: "Info";
+    max-width: 50%;
 }
