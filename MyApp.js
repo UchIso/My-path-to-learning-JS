@@ -18,7 +18,6 @@ let CreateElementFunc = function (Type , IdName , ClassName , MethodName) {
 
 function ChekDivs(ParentElement){
     
-
     const allElements = ParentElement.querySelectorAll('*');
     const SimpleDiv = new Set()
 

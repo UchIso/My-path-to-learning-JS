@@ -9,15 +9,25 @@
 <body>
     <div id="allDivs" class="allDivs">
         <div class="AdderSet" id="AdderSet">
-
-            <input id="Kategory" class="Kategory" type="text">
+            <input type="text" placeholder="Search">
             <div class="Container" id="Container">
-                <textarea placeholder="Code" class="MethotInfo" id="MethotInfo">I need this:
-                Adder   ,   Cheker  ,   Search  ,   Deleter  ,   More Info    ,   CSS Update  ,   More Color ,   Local Stoarage
-                </textarea>
-                <textarea placeholder="Returned" class="MethotBack" id="MethotBack"></textarea>
-                    <!-- <button>a</button> -->
-                    <!-- <button>b</button> -->
+                <div class="ClassRow">
+                    <hr id="PatternL">
+                    <input id="Kategory" class="Kategory" type="text" placeholder="Class Name">
+                    <hr id="PatternR">
+                </div>
+                <div class="ContentRow">
+                    <textarea placeholder="Code" class="MethotInfo" id="MethotInfo">I need this:
+                    Adder   ,   Cheker  ,   Search  ,   Deleter  ,   More Info    ,   CSS Update  ,   More Color ,   Local Stoarage
+                    </textarea>
+                    <hr class="Indicator">
+                    <textarea placeholder="Returned" class="MethotBack" id="MethotBack"></textarea>
+                </div>
+                <div class="ButtonsRow">
+                    <button id="AddBtn" class="AddBtn">Add</button>
+                    <hr id="PatternM" class="PatternM">
+                    <button id="DeleteBtn" class="DeleteBtn">Delete</button>
+                </div>
             </div>
         </div>
         <hr>
