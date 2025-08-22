@@ -1,12 +1,16 @@
 const allDivs = document.getElementById("allDivs")
 
-let CreateElementFunc = function (Type , IdName , ClassName , MethodName) {
+let CreateElementFunc = function (Type , IdName , Class , MethodName) {
     let ElementTag = allDivs.appendChild(document.createElement(Type))
     ElementTag.id = IdName
-    ElementTag.classList.add(ClassName,MethodName)
+    ElementTag.classList.add(Class,MethodName)
 
-    
     if(ElementTag.classList[0] === "ClassDiv"){
+        let ClassName = ElementTag.appendChild(document.createElement("span"))
+        ClassName.textContent = IdName
+        ClassName.id = IdName
+        ClassName.classList.add("ClassName",MethodName)
+
         let ClassHr = allDivs.appendChild(document.createElement("hr"))
         ClassHr.id = IdName;
         ClassHr.classList.add("ClassHr",MethodName)
@@ -23,7 +27,7 @@ function ChekDivs(ParentElement){
 
     allElements.forEach(element => {
 
-        const ID = element.id || `NoName`;
+        const ID = element.id || `NoName`&&!"ContetntName";
         const CLASS = Array.from(element.classList).sort().join(" ")
         const Personal = `${ID}_${CLASS}`
     
@@ -62,7 +66,7 @@ function Classifier(Element){
 CreateElementFunc("div",'String','ClassDiv','Trim')
 CreateElementFunc("div",'String','InfoDiv','Trim')
 CreateElementFunc("div",'String','ReturnDiv','Trim')
-CreateElementFunc("div",'String','ClassDiv','toString')
+CreateElementFunc("div",'String','ClassDiv','toString')  
 CreateElementFunc("div",'Array','ClassDiv','Push')  
 CreateElementFunc("div",'Array','InfoDiv','Push')
 CreateElementFunc("div",'Array','ReturnDiv','Push')
