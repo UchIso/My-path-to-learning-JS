@@ -36,31 +36,28 @@ function ContentDivs(){
     }
 }
 
-function SameClassDivs(){
-    const allClassDivs = allDivs.querySelectorAll(".ClassDiv",".ClassHr")
-    const SameClass = new Set
+function SameDivsFunc(){
+    const ClassDivs = allDivs.querySelectorAll(".ClassDiv")
+    const SameClass = {} 
     
-    allClassDivs.forEach(elements => {
+    ClassDivs.forEach(element => {
         
-        const ClassID = elements.id
-        if(SameClass.has(ClassID)){
-            let SameClass = allDivs.appendChild(document.createElement("div"))
-            SameClass.id = ClassID
-            let DifrentCount = 0
-            SameClass.classList.add("SameClass", DifrentCount)
-            DifrentCount++
-            SameClass.appendChild(elements)
-            console.log(SameClass.children);
+        const ClassID = element.id
+        if(!SameClass[ClassID]){
+            SameClass[ClassID] = []
             
-        }else{
-            SameClass.add(ClassID)
-            SameClass.appendChild(ClassID)
         }
-        
+        SameClass[ClassID].push(element)
     })
-    console.log(SameClass);
-    console.log(allDivs.children);
-    
+
+    for(let id in SameClass){
+        if(SameClass.hasOwnProperty(id)){
+            const SameDivs = allDivs.appendChild(document.createElement("div"))
+            
+            
+        }
+    }
+
 }
 
 function ChekDivs(ParentElement){
@@ -111,12 +108,15 @@ CreateElementFunc("div",'String','ReturnDiv','Trim')
 CreateElementFunc("div",'String','ClassDiv','toString')  
 CreateElementFunc("div",'String','InfoDiv','toString')  
 CreateElementFunc("div",'String','ReturnDiv','toString')  
-CreateElementFunc("div",'Array','ClassDiv','Push')  
+CreateElementFunc("div",'Array','ClassDiv','Includes')
+CreateElementFunc("div",'Array','InfoDiv','Includes')
+CreateElementFunc("div",'Array','ReturnDiv','Includes')
+CreateElementFunc("div",'Array','ClassDiv','Push')
 CreateElementFunc("div",'Array','InfoDiv','Push')
 CreateElementFunc("div",'Array','ReturnDiv','Push')
 // ChekDivs(allDivs)
 ContentDivs()
-SameClassDivs()
+SameDivsFunc()
 // console.log(allDivs.childNodes);
 
 
