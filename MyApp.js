@@ -20,8 +20,9 @@ let CreateElementFunc = function (Type , IdName , Class , MethodName) {
     ChekDivs(allDivs)
 }
 
-function ClassFinalDivs(Divs){
+function ContentDivs(){
 
+    const Divs = document.getElementsByClassName("ClassDiv")
     let ContentDiv
     let ContentInfoDiv
     let ContentReturnDiv
@@ -33,6 +34,33 @@ function ClassFinalDivs(Divs){
         ContentDiv.id = element.id
         ContentDiv.classList.add("ContentDiv",element.classList[1])
     }
+}
+
+function SameClassDivs(){
+    const allClassDivs = allDivs.querySelectorAll(".ClassDiv",".ClassHr")
+    const SameClass = new Set
+    
+    allClassDivs.forEach(elements => {
+        
+        const ClassID = elements.id
+        if(SameClass.has(ClassID)){
+            let SameClass = allDivs.appendChild(document.createElement("div"))
+            SameClass.id = ClassID
+            let DifrentCount = 0
+            SameClass.classList.add("SameClass", DifrentCount)
+            DifrentCount++
+            SameClass.appendChild(elements)
+            console.log(SameClass.children);
+            
+        }else{
+            SameClass.add(ClassID)
+            SameClass.appendChild(ClassID)
+        }
+        
+    })
+    console.log(SameClass);
+    console.log(allDivs.children);
+    
 }
 
 function ChekDivs(ParentElement){
@@ -87,7 +115,8 @@ CreateElementFunc("div",'Array','ClassDiv','Push')
 CreateElementFunc("div",'Array','InfoDiv','Push')
 CreateElementFunc("div",'Array','ReturnDiv','Push')
 // ChekDivs(allDivs)
-ClassFinalDivs(Array.from(document.getElementsByClassName("ClassDiv")))
+ContentDivs()
+SameClassDivs()
 // console.log(allDivs.childNodes);
 
 
