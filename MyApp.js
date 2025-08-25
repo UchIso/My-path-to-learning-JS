@@ -11,33 +11,9 @@ let CreateElementFunc = function (Type , IdName , Class , MethodName) {
     ChekDivs(allDivs)
 }
 
-function ContentDivs(){
-
-    const Divs = document.getElementsByClassName("ClassDiv")
-
-    let ContentDiv
-    let ContentInfoDiv
-    let ContentReturnDiv
-    for(let element of Divs){
-        
-        const MethotName = element.appendChild(document.createElement("h3"))
-        MethotName.id = element.id
-        MethotName.className = "MethotName"
-        MethotName.textContent = element.classList[1]
-
-        ContentDiv = element.appendChild(document.createElement("div"))
-        ContentInfoDiv = element.children[1]
-        ContentReturnDiv = element.children[2]
-        ContentDiv.appendChild(ContentInfoDiv,ContentReturnDiv)
-        ContentDiv.id = element.id
-        ContentDiv.classList.add("ContentDiv",element.classList[1])
-    }
-}
-
 function SameDivsFunc(){
     const AllClass = allDivs.querySelectorAll(".ClassDiv")
     const SameClass=[]
-
     AllClass.forEach(ClassDiv =>{
         const ClassID = ClassDiv.id
         if(!SameClass[ClassID]){
@@ -45,7 +21,7 @@ function SameDivsFunc(){
         }
         SameClass[ClassID].push(ClassDiv)
     })
-
+    
     for(const ID in SameClass){
         if(SameClass.hasOwnProperty(ID)){
             const SameDiv = allDivs.appendChild(document.createElement("div"))
@@ -56,25 +32,30 @@ function SameDivsFunc(){
             ClassName.className = "ClassName"
             
             const SameContentDiv = SameDiv.appendChild(document.createElement("div"))
-            SameClass[ID].forEach(element => {
-                SameContentDiv.appendChild(element)
+            SameClass[ID].forEach(Element => {
+                const MethodName = document.createElement("h3")
+                MethodName.textContent = Element.classList[1]
+                MethodName.id = ID
+                MethodName.classList.add("MethotName",Element.classList[1])
+                Element.prepend(MethodName)
+
+                SameContentDiv.appendChild(Element)
             })
-            const ClassHr = SameDiv.appendChild(document.createElement("hr"))
+            
+            const ClassHr = allDivs.appendChild(document.createElement("hr"))
             ClassHr.id = ID
             ClassHr.className = "ClassHr"
         }
     }
-    
 }
 
 function ChekDivs(ParentElement){
     
     const allElements = ParentElement.querySelectorAll('*');
     const SimpleDiv = new Set()
-
     allElements.forEach(element => {
 
-        const ID = element.id || `NoName`//&&!"ContetntName";
+        const ID = element.id || `NoName`
         const CLASS = Array.from(element.classList).sort().join(" ")
         const Personal = `${ID}_${CLASS}`
     
@@ -94,7 +75,6 @@ function ChekDivs(ParentElement){
 function Classifier(Element){
     
     let ClassDiv = allDivs.querySelectorAll(".ClassDiv")
-    
     ClassDiv.forEach(element => {
         const id = element.id;
         const method = Array.from(element.classList).sort()[1]
@@ -104,10 +84,11 @@ function Classifier(Element){
         if(eDone == EDone){
             element.appendChild(Element)
         }
+        
     })
     
+    
 }
-
 
 CreateElementFunc("div",'String','ClassDiv','Trim')
 CreateElementFunc("div",'String','InfoDiv','Trim')
@@ -119,16 +100,9 @@ CreateElementFunc("div",'Array','ClassDiv','Includes')
 CreateElementFunc("div",'Array','InfoDiv','Includes')
 CreateElementFunc("div",'Array','ReturnDiv','Includes')
 CreateElementFunc("div",'Array','ClassDiv','Push')
+CreateElementFunc("div",'Array','InfoDiv','Push')
+CreateElementFunc("div",'Array','ReturnDiv','Push')
 CreateElementFunc("div",'Array','ClassDiv','Find')
 CreateElementFunc("div",'Array','InfoDiv','Find')
 CreateElementFunc("div",'Array','ReturnDiv','Find')
-CreateElementFunc("div",'Array','InfoDiv','Push')
-CreateElementFunc("div",'Array','ReturnDiv','Push')
-
-// ChekDivs(allDivs)
-ContentDivs()
 SameDivsFunc()
-// console.log(allDivs.childNodes);
-
-
-
