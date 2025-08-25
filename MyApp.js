@@ -5,16 +5,7 @@ let CreateElementFunc = function (Type , IdName , Class , MethodName) {
     ElementTag.id = IdName
     ElementTag.classList.add(Class,MethodName)
 
-    if(ElementTag.classList[0] === "ClassDiv"){
-        let ClassName = ElementTag.appendChild(document.createElement("h1"))
-        ClassName.textContent = IdName
-        ClassName.id = IdName
-        ClassName.classList.add("ClassName",MethodName)
-    
-        let ClassHr = allDivs.appendChild(document.createElement("hr"))
-        ClassHr.id = IdName;
-        ClassHr.classList.add("ClassHr",MethodName)
-    }else{
+    if(!(ElementTag.classList[0] === "ClassDiv")){   
         Classifier(ElementTag)
     }
     ChekDivs(allDivs)
@@ -23,41 +14,57 @@ let CreateElementFunc = function (Type , IdName , Class , MethodName) {
 function ContentDivs(){
 
     const Divs = document.getElementsByClassName("ClassDiv")
+
     let ContentDiv
     let ContentInfoDiv
     let ContentReturnDiv
     for(let element of Divs){
+        
+        const MethotName = element.appendChild(document.createElement("h3"))
+        MethotName.id = element.id
+        MethotName.className = "MethotName"
+        MethotName.textContent = element.classList[1]
+
         ContentDiv = element.appendChild(document.createElement("div"))
         ContentInfoDiv = element.children[1]
         ContentReturnDiv = element.children[2]
-        ContentDiv.append(ContentInfoDiv,ContentReturnDiv)
+        ContentDiv.appendChild(ContentInfoDiv,ContentReturnDiv)
         ContentDiv.id = element.id
         ContentDiv.classList.add("ContentDiv",element.classList[1])
     }
 }
 
 function SameDivsFunc(){
-    const ClassDivs = allDivs.querySelectorAll(".ClassDiv")
-    const SameClass = {} 
-    
-    ClassDivs.forEach(element => {
-        
-        const ClassID = element.id
+    const AllClass = allDivs.querySelectorAll(".ClassDiv")
+    const SameClass=[]
+
+    AllClass.forEach(ClassDiv =>{
+        const ClassID = ClassDiv.id
         if(!SameClass[ClassID]){
-            SameClass[ClassID] = []
-            
+            SameClass[ClassID]=[]
         }
-        SameClass[ClassID].push(element)
+        SameClass[ClassID].push(ClassDiv)
     })
 
-    for(let id in SameClass){
-        if(SameClass.hasOwnProperty(id)){
-            const SameDivs = allDivs.appendChild(document.createElement("div"))
+    for(const ID in SameClass){
+        if(SameClass.hasOwnProperty(ID)){
+            const SameDiv = allDivs.appendChild(document.createElement("div"))
+            SameDiv.id = ID
             
+            const ClassName = SameDiv.appendChild(document.createElement("h1"))
+            ClassName.textContent = ID
+            ClassName.className = "ClassName"
             
+            const SameContentDiv = SameDiv.appendChild(document.createElement("div"))
+            SameClass[ID].forEach(element => {
+                SameContentDiv.appendChild(element)
+            })
+            const ClassHr = SameDiv.appendChild(document.createElement("hr"))
+            ClassHr.id = ID
+            ClassHr.className = "ClassHr"
         }
     }
-
+    
 }
 
 function ChekDivs(ParentElement){
@@ -112,8 +119,12 @@ CreateElementFunc("div",'Array','ClassDiv','Includes')
 CreateElementFunc("div",'Array','InfoDiv','Includes')
 CreateElementFunc("div",'Array','ReturnDiv','Includes')
 CreateElementFunc("div",'Array','ClassDiv','Push')
+CreateElementFunc("div",'Array','ClassDiv','Find')
+CreateElementFunc("div",'Array','InfoDiv','Find')
+CreateElementFunc("div",'Array','ReturnDiv','Find')
 CreateElementFunc("div",'Array','InfoDiv','Push')
 CreateElementFunc("div",'Array','ReturnDiv','Push')
+
 // ChekDivs(allDivs)
 ContentDivs()
 SameDivsFunc()
