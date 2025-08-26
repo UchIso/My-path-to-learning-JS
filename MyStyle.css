@@ -103,6 +103,7 @@ hr {
     border-radius: 20px;
 }
 
+.ClassContentDiv,
 .ReturnDiv,
 .InfoDiv {
     width: 50%;
@@ -119,10 +120,15 @@ hr {
     transition: .2s ease-in-out;
 }
 
+.ClassContentDiv{
+    width: 100%;
+    min-height:400px;
+    box-shadow: none;
+    border: none;
+}
 .InfoDiv {
     background: linear-gradient(135deg,rgba(46,46,46,0.1),rgba(46,46,46,0.5));
 }
-
 .ReturnDiv {
     background: linear-gradient(-135deg,rgba(0,0,0,0.1),rgba(0,0,0,0.7));
     font-family: 'Courier New', Courier, monospace;

@@ -38,8 +38,10 @@ function SameDivsFunc(){
                 MethodName.id = ID
                 MethodName.classList.add("MethotName",Element.classList[1])
                 Element.prepend(MethodName)
-
+                
                 SameContentDiv.appendChild(Element)
+                Element.after(document.createElement("hr"))
+                ContentDivFunc(Element)
             })
             
             const ClassHr = allDivs.appendChild(document.createElement("hr"))
@@ -47,6 +49,18 @@ function SameDivsFunc(){
             ClassHr.className = "ClassHr"
         }
     }
+}
+function ContentDivFunc(ClassDivs){
+
+    const ContentDiv = ClassDivs.appendChild(document.createElement("div"))
+    ContentDiv.id = ClassDivs.id
+    ContentDiv.classList.add("ClassContentDiv",ClassDivs.classList[1])
+    
+    const InfoDivs = ClassDivs.querySelector(".InfoDiv")
+    const ReturnDivs = ClassDivs.querySelector(".ReturnDiv")
+    
+    ContentDiv.appendChild(InfoDivs)
+    ContentDiv.appendChild(ReturnDivs)   
 }
 
 function ChekDivs(ParentElement){
@@ -83,11 +97,8 @@ function Classifier(Element){
         
         if(eDone == EDone){
             element.appendChild(Element)
-        }
-        
+        }  
     })
-    
-    
 }
 
 CreateElementFunc("div",'String','ClassDiv','Trim')
