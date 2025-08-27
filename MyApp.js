@@ -10,59 +10,20 @@ let CreateElementFunc = function (Type , IdName , Class , MethodName) {
     }
     ChekDivs(allDivs)
 }
-
-function SameDivsFunc(){
-    const AllClass = allDivs.querySelectorAll(".ClassDiv")
-    const SameClass=[]
-    AllClass.forEach(ClassDiv =>{
-        const ClassID = ClassDiv.id
-        if(!SameClass[ClassID]){
-            SameClass[ClassID]=[]
-        }
-        SameClass[ClassID].push(ClassDiv)
+function Classifier(Element){
+    
+    let ClassDiv = allDivs.querySelectorAll(".ClassDiv")
+    ClassDiv.forEach(element => {
+        const id = element.id;
+        const method = Array.from(element.classList).sort()[1]
+        const eDone = (id + method)
+        const EDone = (Element.id + Element.classList[1])
+        
+        if(eDone == EDone){
+            element.appendChild(Element)
+        }  
     })
-    
-    for(const ID in SameClass){
-        if(SameClass.hasOwnProperty(ID)){
-            const SameDiv = allDivs.appendChild(document.createElement("div"))
-            SameDiv.id = ID
-            
-            const ClassName = SameDiv.appendChild(document.createElement("h1"))
-            ClassName.textContent = ID
-            ClassName.className = "ClassName"
-            
-            const SameContentDiv = SameDiv.appendChild(document.createElement("div"))
-            SameClass[ID].forEach(Element => {
-                const MethodName = document.createElement("h3")
-                MethodName.textContent = Element.classList[1]
-                MethodName.id = ID
-                MethodName.classList.add("MethotName",Element.classList[1])
-                Element.prepend(MethodName)
-                
-                SameContentDiv.appendChild(Element)
-                Element.after(document.createElement("hr"))
-                ContentDivFunc(Element)
-            })
-            
-            const ClassHr = allDivs.appendChild(document.createElement("hr"))
-            ClassHr.id = ID
-            ClassHr.className = "ClassHr"
-        }
-    }
 }
-function ContentDivFunc(ClassDivs){
-
-    const ContentDiv = ClassDivs.appendChild(document.createElement("div"))
-    ContentDiv.id = ClassDivs.id
-    ContentDiv.classList.add("ClassContentDiv",ClassDivs.classList[1])
-    
-    const InfoDivs = ClassDivs.querySelector(".InfoDiv")
-    const ReturnDivs = ClassDivs.querySelector(".ReturnDiv")
-    
-    ContentDiv.appendChild(InfoDivs)
-    ContentDiv.appendChild(ReturnDivs)   
-}
-
 function ChekDivs(ParentElement){
     
     const allElements = ParentElement.querySelectorAll('*');
@@ -86,19 +47,65 @@ function ChekDivs(ParentElement){
     })
 }
 
-function Classifier(Element){
+function SameDivsFunc(){
+
+    const AllClass = allDivs.querySelectorAll(".ClassDiv")
+    const SameClass=[]
+
+    AllClass.forEach(ClassDiv =>{
     
-    let ClassDiv = allDivs.querySelectorAll(".ClassDiv")
-    ClassDiv.forEach(element => {
-        const id = element.id;
-        const method = Array.from(element.classList).sort()[1]
-        const eDone = (id + method)
-        const EDone = (Element.id + Element.classList[1])
-        
-        if(eDone == EDone){
-            element.appendChild(Element)
-        }  
+        const ClassID = ClassDiv.id
+        if(!SameClass[ClassID]){
+            SameClass[ClassID]=[]
+        }
+        SameClass[ClassID].push(ClassDiv)
     })
+    
+    for(const ID in SameClass){
+        if(SameClass.hasOwnProperty(ID)){
+            const SameDiv = allDivs.appendChild(document.createElement("div"))
+            SameDiv.id = ID
+            
+            const ClassName = SameDiv.appendChild(document.createElement("h1"))
+            ClassName.textContent = ID
+            ClassName.className = "ClassName"
+            
+            const SameContentDiv = SameDiv.appendChild(document.createElement("div"))
+            SameContentDiv.id = ID
+            SameContentDiv.classList.add("SameContentDiv")
+            
+            SameClass[ID].forEach(Element => {
+                
+                const MethodName = document.createElement("h3")
+                MethodName.textContent = Element.classList[1]
+                MethodName.id = ID
+                MethodName.classList.add("MethotName",Element.classList[1])
+                
+                Element.prepend(MethodName)
+                SameContentDiv.appendChild(Element)
+                Element.after(document.createElement("hr"))
+                
+                ContentDivFunc(Element)               
+            })
+            SameContentDiv.lastChild.remove()
+            
+            const ClassHr = allDivs.appendChild(document.createElement("hr"))
+            ClassHr.id = ID
+            ClassHr.className = "ClassHr"
+        }
+    }
+}
+function ContentDivFunc(ClassDivs){
+
+    const ContentDiv = ClassDivs.appendChild(document.createElement("div"))
+    ContentDiv.id = ClassDivs.id
+    ContentDiv.classList.add("ClassContentDiv",ClassDivs.classList[1])
+    
+    const InfoDivs = ClassDivs.querySelector(".InfoDiv")
+    const ReturnDivs = ClassDivs.querySelector(".ReturnDiv")
+    
+    ContentDiv.appendChild(InfoDivs)
+    ContentDiv.appendChild(ReturnDivs)   
 }
 
 CreateElementFunc("div",'String','ClassDiv','Trim')
