@@ -68,7 +68,7 @@ function SameDivsFunc(){
             SameDiv.className = "SameDivs"
             
             const ClassName = SameDiv.appendChild(document.createElement("h1"))
-            ClassName.textContent = ID
+            ClassName.textContent = ID.toUpperCase()
             ClassName.className = "ClassName"
             
             const SameContentDiv = SameDiv.appendChild(document.createElement("div"))
@@ -78,7 +78,7 @@ function SameDivsFunc(){
             SameClass[ID].forEach(Element => {
                 
                 const MethodName = document.createElement("h3")
-                MethodName.textContent = Element.classList[1]
+                MethodName.textContent = Element.classList[1].toUpperCase()
                 MethodName.id = ID
                 MethodName.classList.add("MethotName",Element.classList[1])
                 
@@ -109,6 +109,21 @@ function ContentDivFunc(ClassDivs){
     ContentDiv.appendChild(ReturnDivs)   
 }
 
+const Wanted = allDivs.querySelector(".SearchName").addEventListener("keyup",SeacrhFunc)
+function SeacrhFunc(){
+    const Wanted = allDivs.querySelector(".SearchName").value.trim()
+    const ClassDivs = Array.from(allDivs.querySelectorAll(".SameDivs"))
+    const WantedDiv = allDivs.appendChild(document.createElement("div"))
+    
+    ClassDivs.some(Element => {
+        if(Element.id.charAt(Wanted.length)==Wanted.charAt(Wanted.length)){
+            console.log(Element);
+            console.log(Wanted);
+            // WantedDiv.appendChild(Element.firstChild)
+        }
+    })
+        
+}
 CreateElementFunc("div",'String','ClassDiv','Trim')
 CreateElementFunc("div",'String','InfoDiv','Trim')
 CreateElementFunc("div",'String','ReturnDiv','Trim')
@@ -125,3 +140,4 @@ CreateElementFunc("div",'Array','ClassDiv','Find')
 CreateElementFunc("div",'Array','InfoDiv','Find')
 CreateElementFunc("div",'Array','ReturnDiv','Find')
 SameDivsFunc()
+SeacrhFunc()
