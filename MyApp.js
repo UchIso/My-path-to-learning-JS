@@ -65,6 +65,7 @@ function SameDivsFunc(){
         if(SameClass.hasOwnProperty(ID)){
             const SameDiv = allDivs.appendChild(document.createElement("div"))
             SameDiv.id = ID
+            SameDiv.className = "SameDivs"
             
             const ClassName = SameDiv.appendChild(document.createElement("h1"))
             ClassName.textContent = ID
