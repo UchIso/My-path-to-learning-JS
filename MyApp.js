@@ -114,12 +114,17 @@ function SeacrhFunc(){
     const Wanted = allDivs.querySelector(".SearchName").value.trim()
     const ClassDivs = Array.from(allDivs.querySelectorAll(".SameDivs"))
     const WantedDiv = allDivs.appendChild(document.createElement("div"))
-    
-    ClassDivs.some(Element => {
-        if(Element.id.charAt(Wanted.length)==Wanted.charAt(Wanted.length)){
+    ClassDivs.forEach(Element => {
+        if(Element.id.toUpperCase().includes(Wanted.toUpperCase())){
             console.log(Element);
             console.log(Wanted);
-            // WantedDiv.appendChild(Element.firstChild)
+            Element.style.zindex = "15"
+            Element.style.position = "relative"
+            Element.style.opacity = "100%"
+        }else{
+            Element.style.zindex = "-15"
+            Element.style.position = "absolute"
+            Element.style.opacity = "0%"
         }
     })
         
