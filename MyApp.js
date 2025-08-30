@@ -109,22 +109,17 @@ function ContentDivFunc(ClassDivs){
     ContentDiv.appendChild(ReturnDivs)   
 }
 
-const Wanted = allDivs.querySelector(".SearchName").addEventListener("keyup",SeacrhFunc)
+allDivs.querySelector(".SearchName").addEventListener("keyup",SeacrhFunc)
 function SeacrhFunc(){
-    const Wanted = allDivs.querySelector(".SearchName").value.trim()
+    const Search = allDivs.querySelector(".SearchName").value.trim()
     const ClassDivs = Array.from(allDivs.querySelectorAll(".SameDivs"))
-    const WantedDiv = allDivs.appendChild(document.createElement("div"))
+    const ClassHr = allDivs.querySelectorAll(".ClassHr")
+
     ClassDivs.forEach(Element => {
-        if(Element.id.toUpperCase().includes(Wanted.toUpperCase())){
-            console.log(Element);
-            console.log(Wanted);
-            Element.style.zindex = "15"
-            Element.style.position = "relative"
-            Element.style.opacity = "100%"
+        if(Element.id.trim().toUpperCase().includes(Search.toUpperCase().trim())){
+            Element.style.display = 'block';
         }else{
-            Element.style.zindex = "-15"
-            Element.style.position = "absolute"
-            Element.style.opacity = "0%"
+            Element.style.display = 'none';
         }
     })
         

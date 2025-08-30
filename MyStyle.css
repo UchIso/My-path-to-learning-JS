@@ -311,3 +311,7 @@ hr{
     border-bottom: whitesmoke solid 1px  ;
     border-radius: 0 0 100px 100px ;
 }
+
+.FoundDiv{
+    background-color: red;
+}
