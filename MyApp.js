@@ -84,7 +84,12 @@ function SameDivsFunc(){
                 
                 Element.prepend(MethodName)
                 SameContentDiv.appendChild(Element)
-                Element.after(document.createElement("hr"))
+                
+                const ContentHr = document.createElement("hr")
+                ContentHr.id = ID
+                ContentHr.classList.add("ContentHr",Element.classList[1])
+                
+                Element.after(ContentHr)
                 
                 ContentDivFunc(Element)               
             })
@@ -109,8 +114,9 @@ function ContentDivFunc(ClassDivs){
     ContentDiv.appendChild(ReturnDivs)   
 }
 
-function SeacrhFunc(SearchNameInput,SearchMethotInput){
-
+function SeacrhNameFunc(SearchNameInput){
+    
+    const ClassHr = allDivs.querySelectorAll(".ClassHr")
     const ClassDivs = allDivs.querySelectorAll(".SameDivs")
     
     SearchNameInput.addEventListener("keyup",SearchIn => {
@@ -122,25 +128,56 @@ function SeacrhFunc(SearchNameInput,SearchMethotInput){
             const Element = Elements.id.toUpperCase().trim()
             if(Element.includes(Search)) {
                 Elements.style.display = 'block';
+                ClassHr.forEach(Hr => {
+                    const HrId = Hr.id.toUpperCase().trim()
+                    if(HrId.includes(Search)){
+                        Hr.style.display = "block"
+                    }else{
+                        Hr.style.display = "none"
+                    }
+                })
             }else{
                 Elements.style.display = 'none';
             }
         })
     })
+}
+function SeacrhMethotFunc(SearchMethotInput){
 
+    const ClassHr = allDivs.querySelectorAll(".ClassHr")
+    const ClassDivs = allDivs.querySelectorAll(".SameDivs")
+    const ContentHr = allDivs.querySelectorAll(".ContentHr")
     const ClassDiv = allDivs.querySelectorAll(".ClassDiv")
+
     SearchMethotInput.addEventListener("keyup",SearchIn => {
+    
         const Search = SearchIn.target.value.toUpperCase().trim()
+    
         ClassDiv.forEach(Elements => {
-            const Element = Elements.children
-            console.log(Element);
-            
-            // if(Element.includes(Search)){
-                // Elements.style.display = "block"
-            // }
+    
+            const Element = Elements.classList[1].toUpperCase().trim()            
+            if(Element.includes(Search)){
+                Elements.style.display = "block"
+                ContentHr.forEach(Hr => {
+                    const HrMethot = Hr.classList[1].toUpperCase().trim()
+                    if(HrMethot.includes(Search)){
+                        Hr.style.display = "block"
+                    }else{
+                        Hr.style.display = "none"
+                        
+                        ClassDivs.forEach(element => {
+                            console.log(element.children);
+                        })
+                    }
+                })
+            }else{
+                Elements.style.display = "none"
+            }
         })
     })
 }
+// SearchMethotInput
+
 CreateElementFunc("div",'String','ClassDiv','Trim')
 CreateElementFunc("div",'String','InfoDiv','Trim')
 CreateElementFunc("div",'String','ReturnDiv','Trim')
@@ -157,4 +194,5 @@ CreateElementFunc("div",'Array','ClassDiv','Find')
 CreateElementFunc("div",'Array','InfoDiv','Find')
 CreateElementFunc("div",'Array','ReturnDiv','Find')
 SameDivsFunc()
-SeacrhFunc(allDivs.querySelector(".SearchName"),allDivs.querySelector(".SearchMethot"))
+SeacrhNameFunc(allDivs.querySelector(".SearchName"))
+SeacrhMethotFunc(allDivs.querySelector(".SearchMethot"))
