@@ -63,6 +63,7 @@ function SameDivsFunc(){
     
     for(const ID in SameClass){
         if(SameClass.hasOwnProperty(ID)){
+
             const SameDiv = allDivs.appendChild(document.createElement("div"))
             SameDiv.id = ID
             SameDiv.className = "SameDivs"
@@ -148,35 +149,44 @@ function SeacrhMethotFunc(SearchMethotInput){
     const ClassDivs = allDivs.querySelectorAll(".SameDivs")
     const ContentHr = allDivs.querySelectorAll(".ContentHr")
     const ClassDiv = allDivs.querySelectorAll(".ClassDiv")
+    
+    // const ClassSet = new Set
+    // ClassDiv.forEach( Elements => {
+    //     const ID = Elements.id
+    //     const CLASS = Array.from(Elements.classList[1]).sort().join("")
+    //     const NAMES = `${ID}_${CLASS}`
+    //     console.log(NAMES);
+    //     if(ClassSet.has(NAMES)){
 
+    //     }
+    // })
+    // console.log(ClassSet);
+    
     SearchMethotInput.addEventListener("keyup",SearchIn => {
     
         const Search = SearchIn.target.value.toUpperCase().trim()
     
         ClassDiv.forEach(Elements => {
-    
+            
             const Element = Elements.classList[1].toUpperCase().trim()            
             if(Element.includes(Search)){
+                
                 Elements.style.display = "block"
                 ContentHr.forEach(Hr => {
+                    
                     const HrMethot = Hr.classList[1].toUpperCase().trim()
                     if(HrMethot.includes(Search)){
                         Hr.style.display = "block"
                     }else{
                         Hr.style.display = "none"
-                        
-                        ClassDivs.forEach(element => {
-                            console.log(element.children);
-                        })
                     }
-                })
+                })                
             }else{
                 Elements.style.display = "none"
             }
         })
     })
 }
-// SearchMethotInput
 
 CreateElementFunc("div",'String','ClassDiv','Trim')
 CreateElementFunc("div",'String','InfoDiv','Trim')
