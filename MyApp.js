@@ -190,52 +190,33 @@ function SeacrhMethotFunc(SearchMethotInput){
                 }
                 NotNeed[ElementId].push(Elements)
             }
+            SeacrhOF(ClassDivsArr,NotNeed)
         })
-        SeacrhOF(ClassDivsArr,NotNeed)
     })
 }
 function SeacrhOF(ClassArr,NotNeed){
+    
     const ClassDivs = Object.entries(ClassArr)
     const NotNeeds = Object.entries(NotNeed)
-    const ClassValue=[]
-    const NotNeedValue=[]
-    
-    for(value of ClassDivs){
-        ClassValue.push(value[1]);
-    }
-    console.log(ClassValue);
+    const Hrs = allDivs.querySelectorAll("hr")
 
-    for(value of NotNeeds){
-        NotNeedValue.push(value[1])
-    }
-    console.log(NotNeedValue,"NotNeed");
-    
-    for(let index=0 ; index<ClassValue.length ; index++){
-        if(NotNeedValue[index]===undefined){
-            console.log(NotNeedValue[index],"HAHAHA");
-        }else{
-            if(ClassValue[index].length == NotNeedValue[index].length){
-                console.log(NotNeedValue[index],"HAHAHA");
+    for(value of ClassDivs){
+        const UselesDiv = document.getElementById(value[0])
+        for(index of NotNeeds){
+            if(value[0]===index[0]){
+                if(value[1].length === index[1].length){
+                    UselesDiv.style.display = "none"
+                    Hrs.forEach(Hr => {
+                        if (Hr.id == value[0] && Hr.className == "ClassHr") {
+                            Hr.style.display = "none"
+                        }
+                    })
+                }else{
+                    UselesDiv.style.display = "block"
+                }
             }
         }
-        // console.log(ClassValue[index]);
-        // console.log(NotNeedValue[index]);
     }
-    // for(Index of ClassDivs){
-    //     console.log(Index,"ClassDiv");
-    //     console.log(Index[1].length);
-    //     for(index of Object.entries(NotNeed)){
-    //         console.log(index,"Elements");
-    //         console.log(index[1].length);
-    //         if(Index[0]===index[0]){
-    //             if(Index[1].length === index[1].length){
-    //                 console.log("Yes");
-    //                 console.log(Index[1].parentElement);
-    //                 console.log(index[1]);
-    //             }
-    //         }
-    //     }
-    // }
 }
 
 CreateElementFunc("div",'String','ClassDiv','Trim')
