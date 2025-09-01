@@ -5,7 +5,7 @@ let CreateElementFunc = function (Type , IdName , Class , MethodName) {
     ElementTag.id = IdName
     ElementTag.classList.add(Class,MethodName)
 
-    if(!(ElementTag.classList[0] === "ClassDiv")){   
+    if(!(ElementTag.classList[0] === "ClassDiv")){
         Classifier(ElementTag)
     }
     ChekDivs(allDivs)
@@ -70,8 +70,9 @@ function SameDivsFunc(){
             
             const ClassName = SameDiv.appendChild(document.createElement("h1"))
             ClassName.textContent = ID.toUpperCase()
+            ClassName.id = ID
             ClassName.className = "ClassName"
-            
+
             const SameContentDiv = SameDiv.appendChild(document.createElement("div"))
             SameContentDiv.id = ID
             SameContentDiv.classList.add("SameContentDiv")
@@ -92,7 +93,7 @@ function SameDivsFunc(){
                 
                 Element.after(ContentHr)
                 
-                ContentDivFunc(Element)               
+                ContentDivFunc(Element)
             })
             SameContentDiv.lastChild.remove()
             
@@ -112,7 +113,7 @@ function ContentDivFunc(ClassDivs){
     const ReturnDivs = ClassDivs.querySelector(".ReturnDiv")
     
     ContentDiv.appendChild(InfoDivs)
-    ContentDiv.appendChild(ReturnDivs)   
+    ContentDiv.appendChild(ReturnDivs)
 }
 
 function SeacrhNameFunc(SearchNameInput){
@@ -138,37 +139,36 @@ function SeacrhNameFunc(SearchNameInput){
                     }
                 })
             }else{
-                Elements.style.display = 'none';
+                Elements.style.display = 'none';                
             }
         })
     })
 }
 function SeacrhMethotFunc(SearchMethotInput){
 
-    const ClassHr = allDivs.querySelectorAll(".ClassHr")
-    const ClassDivs = allDivs.querySelectorAll(".SameDivs")
+    // const ClassHr = allDivs.querySelectorAll(".ClassHr")
+    // const ClassDivs = allDivs.querySelectorAll(".SameDivs")
     const ContentHr = allDivs.querySelectorAll(".ContentHr")
     const ClassDiv = allDivs.querySelectorAll(".ClassDiv")
-    
-    // const ClassSet = new Set
-    // ClassDiv.forEach( Elements => {
-    //     const ID = Elements.id
-    //     const CLASS = Array.from(Elements.classList[1]).sort().join("")
-    //     const NAMES = `${ID}_${CLASS}`
-    //     console.log(NAMES);
-    //     if(ClassSet.has(NAMES)){
 
-    //     }
-    // })
-    // console.log(ClassSet);
+    const ClassDivsArr=[]
+    ClassDiv.forEach(ClassDivs =>{
+        
+        const ClassID = ClassDivs.id
+        if(!ClassDivsArr[ClassID]){
+            ClassDivsArr[ClassID]=[]
+        }
+        ClassDivsArr[ClassID].push(ClassDivs)
+    })
     
     SearchMethotInput.addEventListener("keyup",SearchIn => {
+        const NotNeed = []
     
         const Search = SearchIn.target.value.toUpperCase().trim()
     
         ClassDiv.forEach(Elements => {
             
-            const Element = Elements.classList[1].toUpperCase().trim()            
+            const Element = Elements.classList[1].toUpperCase().trim()
             if(Element.includes(Search)){
                 
                 Elements.style.display = "block"
@@ -180,20 +180,70 @@ function SeacrhMethotFunc(SearchMethotInput){
                     }else{
                         Hr.style.display = "none"
                     }
-                })                
+                })
             }else{
                 Elements.style.display = "none"
+                
+                const ElementId = Elements.id
+                if(!NotNeed[ElementId]){
+                    NotNeed[ElementId]=[]
+                }
+                NotNeed[ElementId].push(Elements)
             }
         })
+        SeacrhOF(ClassDivsArr,NotNeed)
     })
+}
+function SeacrhOF(ClassArr,NotNeed){
+    const ClassDivs = Object.entries(ClassArr)
+    const NotNeeds = Object.entries(NotNeed)
+    const ClassValue=[]
+    const NotNeedValue=[]
+    
+    for(value of ClassDivs){
+        ClassValue.push(value[1]);
+    }
+    console.log(ClassValue);
+
+    for(value of NotNeeds){
+        NotNeedValue.push(value[1])
+    }
+    console.log(NotNeedValue,"NotNeed");
+    
+    for(let index=0 ; index<ClassValue.length ; index++){
+        if(NotNeedValue[index]===undefined){
+            console.log(NotNeedValue[index],"HAHAHA");
+        }else{
+            if(ClassValue[index].length == NotNeedValue[index].length){
+                console.log(NotNeedValue[index],"HAHAHA");
+            }
+        }
+        // console.log(ClassValue[index]);
+        // console.log(NotNeedValue[index]);
+    }
+    // for(Index of ClassDivs){
+    //     console.log(Index,"ClassDiv");
+    //     console.log(Index[1].length);
+    //     for(index of Object.entries(NotNeed)){
+    //         console.log(index,"Elements");
+    //         console.log(index[1].length);
+    //         if(Index[0]===index[0]){
+    //             if(Index[1].length === index[1].length){
+    //                 console.log("Yes");
+    //                 console.log(Index[1].parentElement);
+    //                 console.log(index[1]);
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 CreateElementFunc("div",'String','ClassDiv','Trim')
 CreateElementFunc("div",'String','InfoDiv','Trim')
 CreateElementFunc("div",'String','ReturnDiv','Trim')
-CreateElementFunc("div",'String','ClassDiv','toString')  
-CreateElementFunc("div",'String','InfoDiv','toString')  
-CreateElementFunc("div",'String','ReturnDiv','toString')  
+CreateElementFunc("div",'String','ClassDiv','toString')
+CreateElementFunc("div",'String','InfoDiv','toString')
+CreateElementFunc("div",'String','ReturnDiv','toString')
 CreateElementFunc("div",'Array','ClassDiv','Includes')
 CreateElementFunc("div",'Array','InfoDiv','Includes')
 CreateElementFunc("div",'Array','ReturnDiv','Includes')

@@ -312,5 +312,5 @@ hr{
     border-radius: 0 0 100px 100px ;
 }
 .HiddenDiv{
-    display: block;
+    background-color: red;
 }
