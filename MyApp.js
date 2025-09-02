@@ -146,8 +146,6 @@ function SeacrhNameFunc(SearchNameInput){
 }
 function SeacrhMethotFunc(SearchMethotInput){
 
-    // const ClassHr = allDivs.querySelectorAll(".ClassHr")
-    // const ClassDivs = allDivs.querySelectorAll(".SameDivs")
     const ContentHr = allDivs.querySelectorAll(".ContentHr")
     const ClassDiv = allDivs.querySelectorAll(".ClassDiv")
 
@@ -192,39 +190,59 @@ function SeacrhMethotFunc(SearchMethotInput){
                 NotNeed[ElementId].push(Elements)
             }
         })
-        SeacrhOF(ClassDivsArr,NotNeed)
+        SeacrhOp(ClassDivsArr,NotNeed)
     })
 }
-function SeacrhOF(ClassArr,NotNeed){
+function SeacrhOp(ClassArr,NotNeed){
     
-    // debugger
-    const ClassDivs = Object.entries(ClassArr)
-    const NotNeeds = Object.entries(NotNeed)
-    const Hrs = allDivs.querySelectorAll("hr")
-    console.log(NotNeeds);
-    for(value of ClassDivs){
-        const UselesDiv = document.getElementById(value[0])
-        if(NotNeeds !== ""){
-            for(index of NotNeeds){
-                console.log("value:",value[0],"index:",index[0]);
-                if(value[0]===index[0]){
-                    if(value[1].length === index[1].length){
-                        UselesDiv.style.display = "none"
-                        Hrs.forEach(Hr => {
-                            if (Hr.id == value[0] && Hr.className == "ClassHr") {
-                                Hr.style.display = "none" 
-                            }
-                        })
-                    }
-                    if(value[1].length !== index[1].length){
-                    }
-                }else{
+    const ClassDivs = Object.entries(ClassArr).sort()
+    const NotNeeds = Object.entries(NotNeed).sort()
+    
+    if (NotNeeds.length === 0){
 
-                    UselesDiv.style.display = "block"
-                }
-            }
-        }
+        const BackDivs = allDivs.querySelectorAll(".SameDivs")
+        const BackHrs = allDivs.querySelectorAll(".ClassHr")
+        
+        BackDivs.forEach(BackDiv => BackDiv.style.display = "block")
+        BackHrs.forEach(BackHr => BackHr.style.display = "block" )
+        return
     }
+    if (ClassDivs.length === NotNeeds.length){
+
+        const BackDivs = allDivs.querySelectorAll(".SameDivs")
+        const BackHrs = allDivs.querySelectorAll(".ClassHr")
+        
+        BackDivs.forEach(BackDiv => BackDiv.style.display = "none" )
+        BackHrs.forEach(BackHr => BackHr.style.display = "none" )
+        return
+    }
+
+    NotNeeds.forEach(NotElements => {
+        
+        if(ClassArr.hasOwnProperty(NotElements[0])){
+            
+            ClassDivs.forEach(ClassElements => {
+                
+                if(ClassElements[0]===NotElements[0]){
+                    if (ClassElements[1].length === NotElements[1].length) {
+
+                        const NotHr = allDivs.querySelector("#"+NotElements[0]+".ClassHr")
+                        const NotDivs = allDivs.querySelector("#"+NotElements[0]+".SameDivs")   
+                        
+                        NotDivs.style.display = "none"
+                        NotHr.style.display = "none"
+                    }else{
+
+                        const NotHr = allDivs.querySelector("#"+NotElements[0]+".ClassHr")
+                        const NotDivs = allDivs.querySelector("#"+NotElements[0]+".SameDivs")   
+                        
+                        NotDivs.style.display = "block"
+                        NotHr.style.display = "block"
+                    }
+                }
+            })
+        }
+    })
 }
 
 CreateElementFunc("div",'String','ClassDiv','Trim')
