@@ -181,37 +181,45 @@ function SeacrhMethotFunc(SearchMethotInput){
                         Hr.style.display = "none"
                     }
                 })
+                
             }else{
                 Elements.style.display = "none"
-                
+
                 const ElementId = Elements.id
                 if(!NotNeed[ElementId]){
                     NotNeed[ElementId]=[]
                 }
                 NotNeed[ElementId].push(Elements)
             }
-            SeacrhOF(ClassDivsArr,NotNeed)
         })
+        SeacrhOF(ClassDivsArr,NotNeed)
     })
 }
 function SeacrhOF(ClassArr,NotNeed){
     
+    // debugger
     const ClassDivs = Object.entries(ClassArr)
     const NotNeeds = Object.entries(NotNeed)
     const Hrs = allDivs.querySelectorAll("hr")
-
+    console.log(NotNeeds);
     for(value of ClassDivs){
         const UselesDiv = document.getElementById(value[0])
-        for(index of NotNeeds){
-            if(value[0]===index[0]){
-                if(value[1].length === index[1].length){
-                    UselesDiv.style.display = "none"
-                    Hrs.forEach(Hr => {
-                        if (Hr.id == value[0] && Hr.className == "ClassHr") {
-                            Hr.style.display = "none"
-                        }
-                    })
+        if(NotNeeds !== ""){
+            for(index of NotNeeds){
+                console.log("value:",value[0],"index:",index[0]);
+                if(value[0]===index[0]){
+                    if(value[1].length === index[1].length){
+                        UselesDiv.style.display = "none"
+                        Hrs.forEach(Hr => {
+                            if (Hr.id == value[0] && Hr.className == "ClassHr") {
+                                Hr.style.display = "none" 
+                            }
+                        })
+                    }
+                    if(value[1].length !== index[1].length){
+                    }
                 }else{
+
                     UselesDiv.style.display = "block"
                 }
             }
@@ -234,6 +242,9 @@ CreateElementFunc("div",'Array','ReturnDiv','Push')
 CreateElementFunc("div",'Array','ClassDiv','Find')
 CreateElementFunc("div",'Array','InfoDiv','Find')
 CreateElementFunc("div",'Array','ReturnDiv','Find')
+CreateElementFunc("div",'Arr','ClassDiv','Find')
+CreateElementFunc("div",'Arr','InfoDiv','Find')
+CreateElementFunc("div",'Arr','ReturnDiv','Find')
 SameDivsFunc()
 SeacrhNameFunc(allDivs.querySelector(".SearchName"))
 SeacrhMethotFunc(allDivs.querySelector(".SearchMethot"))
