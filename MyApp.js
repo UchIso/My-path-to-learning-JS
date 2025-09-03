@@ -232,12 +232,40 @@ function SeacrhOp(ClassArr,NotNeed){
     })
 }
 
+function ListOption(){
+    
+    const SameDivs = document.querySelectorAll(".SameDivs")
+    const ClassDivs = document.querySelectorAll(".ClassDiv")
+    const NameList = document.querySelector("#NameList")
+    const MethotList = document.querySelector("#MethotList")
+    
+    SameDivs.forEach(SameDiv => {
+        
+        const ClassID = SameDiv.id
+        const NameOption = NameList.appendChild(document.createElement("option"))
+        
+        NameOption.id = "NameSearch"
+        NameOption.classList.add("NameOption",ClassID)
+        NameOption.textContent = ClassID
+    })
+    
+    ClassDivs.forEach(ClassDiv => {
+
+        const MethotClass = ClassDiv.classList[1]
+        const MethotOption = MethotList.appendChild(document.createElement("option"))
+
+        MethotOption.id = "MethotSeacrh"
+        MethotOption.classList.add("MethotOption",MethotClass)
+        MethotOption.textContent = MethotClass
+    })
+}
+
 CreateElementFunc("div",'String','ClassDiv','Trim')
 CreateElementFunc("div",'String','InfoDiv','Trim')
 CreateElementFunc("div",'String','ReturnDiv','Trim')
-CreateElementFunc("div",'String','ClassDiv','toString')
-CreateElementFunc("div",'String','InfoDiv','toString')
-CreateElementFunc("div",'String','ReturnDiv','toString')
+CreateElementFunc("div",'String','ClassDiv','ToString')
+CreateElementFunc("div",'String','InfoDiv','ToString')
+CreateElementFunc("div",'String','ReturnDiv','ToString')
 CreateElementFunc("div",'Array','ClassDiv','Includes')
 CreateElementFunc("div",'Array','InfoDiv','Includes')
 CreateElementFunc("div",'Array','ReturnDiv','Includes')
@@ -253,22 +281,4 @@ CreateElementFunc("div",'Arr','ReturnDiv','Find')
 SameDivsFunc()
 SeacrhNameFunc(allDivs.querySelector(".SearchName"))
 SeacrhMethotFunc(allDivs.querySelector(".SearchMethot"))
-
-const deneme = document.querySelector(".lalalaBtn")
-deneme.addEventListener("click",denemeFunck)
-
-let cont = 0
-function denemeFunck(deney){
-    let samaes = allDivs.querySelectorAll(".ClassDiv")
-    if(cont == cont) cont++
-    if(samaes[cont]!== undefined){
-        console.log(samaes[cont].id.toLowerCase());
-        let meh =samaes[cont].id.toLowerCase()
-        let content = allDivs.querySelector(".Container")
-        let as = content.appendChild(document.createElement("a"))
-        as.textContent = samaes[cont].id
-        let saas = as.href = `https://www.w3schools.com/js/js_${meh}s.asp`
-        console.log(saas);
-    }
-}
-console.log(document.location.port);
+ListOption()
