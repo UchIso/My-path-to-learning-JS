@@ -207,34 +207,21 @@ function SeacrhOp(ClassArr,NotNeed){
         BackHrs.forEach(BackHr => BackHr.style.display = "block" )
         return
     }
-    if (ClassDivs.length === NotNeeds.length){
-
-        const BackDivs = allDivs.querySelectorAll(".SameDivs")
-        const BackHrs = allDivs.querySelectorAll(".ClassHr")
-        
-        BackDivs.forEach(BackDiv => BackDiv.style.display = "none" )
-        BackHrs.forEach(BackHr => BackHr.style.display = "none" )
-        return
-    }
-
+    
     NotNeeds.forEach(NotElements => {
         
         if(ClassArr.hasOwnProperty(NotElements[0])){
             
             ClassDivs.forEach(ClassElements => {
-                
+                const NotHr = allDivs.querySelector("#"+NotElements[0]+".ClassHr")
+                const NotDivs = allDivs.querySelector("#"+NotElements[0]+".SameDivs")   
+                        
                 if(ClassElements[0]===NotElements[0]){
                     if (ClassElements[1].length === NotElements[1].length) {
-
-                        const NotHr = allDivs.querySelector("#"+NotElements[0]+".ClassHr")
-                        const NotDivs = allDivs.querySelector("#"+NotElements[0]+".SameDivs")   
-                        
+        
                         NotDivs.style.display = "none"
                         NotHr.style.display = "none"
                     }else{
-
-                        const NotHr = allDivs.querySelector("#"+NotElements[0]+".ClassHr")
-                        const NotDivs = allDivs.querySelector("#"+NotElements[0]+".SameDivs")   
                         
                         NotDivs.style.display = "block"
                         NotHr.style.display = "block"
@@ -266,3 +253,22 @@ CreateElementFunc("div",'Arr','ReturnDiv','Find')
 SameDivsFunc()
 SeacrhNameFunc(allDivs.querySelector(".SearchName"))
 SeacrhMethotFunc(allDivs.querySelector(".SearchMethot"))
+
+const deneme = document.querySelector(".lalalaBtn")
+deneme.addEventListener("click",denemeFunck)
+
+let cont = 0
+function denemeFunck(deney){
+    let samaes = allDivs.querySelectorAll(".ClassDiv")
+    if(cont == cont) cont++
+    if(samaes[cont]!== undefined){
+        console.log(samaes[cont].id.toLowerCase());
+        let meh =samaes[cont].id.toLowerCase()
+        let content = allDivs.querySelector(".Container")
+        let as = content.appendChild(document.createElement("a"))
+        as.textContent = samaes[cont].id
+        let saas = as.href = `https://www.w3schools.com/js/js_${meh}s.asp`
+        console.log(saas);
+    }
+}
+console.log(document.location.port);
