@@ -54,27 +54,27 @@ function SameDivsFunc(){
     const SameClass=[]
 
     AllClass.forEach(ClassDiv =>{
+        if (ClassDiv.classList[2] !== "PASS") {
             const ClassID = ClassDiv.id
             if(!SameClass[ClassID]){
                 SameClass[ClassID]=[]
             }
             SameClass[ClassID].push(ClassDiv)
-        console.log(ClassDiv);
+        }
     })
+    
     for(const ID in SameClass){
-        console.log(ID);
-        // if()
         if(SameClass.hasOwnProperty(ID)){
             
             const SameDiv = allDivs.appendChild(document.createElement("div"))
             SameDiv.id = ID
             SameDiv.className = "SameDivs"
-            
+                
             const ClassName = SameDiv.appendChild(document.createElement("h1"))
             ClassName.textContent = ID.toUpperCase()
             ClassName.id = ID
             ClassName.className = "ClassName"
-
+                
             const SameContentDiv = SameDiv.appendChild(document.createElement("div"))
             SameContentDiv.id = ID
             SameContentDiv.classList.add("SameContentDiv")
@@ -96,6 +96,7 @@ function SameDivsFunc(){
                 Element.after(ContentHr)
                 
                 ContentDivFunc(Element)
+                Element.classList.add("PASS")
             })
             SameContentDiv.lastChild.remove()
             
@@ -260,21 +261,6 @@ function ListOption(){
             MethotOption.textContent = MethotClass
     })
 }
-
-function AddListener(){
-    
-    const ClassName = document.getElementById("Kategory").value
-    const MethodName = document.getElementById("Methot").value
-    const InfoContent = document.getElementById("MethotInfo")
-    const ReturnContent = document.getElementById("MethotBack")
-    CreateElementFunc("div",ClassName,"ClassDiv",MethodName)
-    CreateElementFunc("div",ClassName,"InfoDiv",MethodName)
-    CreateElementFunc("div",ClassName,"ReturnDiv",MethodName)
-SameDivsFunc()
-
-}
-const addBtn = document.getElementById("AddBtn")
-addBtn.addEventListener("click",AddListener)
 
 CreateElementFunc("div",'String','ClassDiv','Trim')
 CreateElementFunc("div",'String','InfoDiv','Trim')

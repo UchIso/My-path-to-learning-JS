@@ -28,14 +28,11 @@ hr{
     border-radius: 10px;
     box-shadow: 0 0 5.5px whitesmoke;
 }
-.Patterns{height: 0px;}
-.PatternM{ width: 200px; }
-.Indicator{ background: linear-gradient(135deg, rgba(46,46,46,0.5), rgba(0,0,0,0.7)); }
 .ClassHr{ margin: 50px; }
 /* ==================== ANA YAPILAR ==================== */
 .allDivs{
     margin: 1%;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     width: 100%;
     display: grid;
     box-sizing: border-box;
@@ -44,9 +41,7 @@ hr{
     justify-items: center;
     align-items: center;
 }
-.Container,
-.ClassDiv,
-.AdderSet{
+.ClassDiv{
     width: 100%;
     min-height: 300px;
     margin: auto;
@@ -59,11 +54,6 @@ hr{
     border: 1px solid whitesmoke;
     border-radius: 20px;
     box-shadow: 0 0 10px whitesmoke;
-}
-.AdderSet{
-    display: grid;
-    gap: 15px;
-    background: linear-gradient(0deg, rgba(175,175,175,0.2), rgba(125,125,125,0.9));
 }
 .ClassDiv{
     display: block;
@@ -134,77 +124,19 @@ hr{
      background: linear-gradient(-135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5));
 }
 /* ==================== BUTON & BİLGİ KUTULARI ==================== */
-.Search,
-.Kategory,
-.Methot,
-.MethotBack,
-.MethotInfo{
+.Search{
     border-radius: 20px;
     border: 1px solid rgba(255,255,255,0.2);
     transition: .3s ease-in-out;
 }
-.Kategory,
-.Methot,
-.MethotBack,
-.MethotInfo{
-    min-width: 250px;
-    min-height: 40px;
-    padding: 10px;
-    box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium','Arial Narrow', Arial, sans-serif;
-    transition: border 0.3s ease-in-out;
-}
-.Kategory{
-    width: 100%;
-    font-size: 20px;
-    text-align: center;
-    background: linear-gradient(135deg, rgba(110,110,110,0.7), rgba(110,110,110,0));
-    border: 1px solid rgba(255,255,255,0.1);
-}
-.Methot{
-    width: 85%;
-    font-size: 15px;
-    text-align: center;
-    background: linear-gradient(180deg, rgba(90,90,90,0.7), rgba(200,200,200,0));
-    border-top: none;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius:0px 0px 25px 25px;
-}
-.MethotInfo{
-    max-width: 900px;
-    background: linear-gradient(135deg, rgba(46,46,46,0.1), rgba(46,46,46,0.5));
-}
-.MethotBack{
-    max-width: 900px;
-    font-size: 15px;
-    font-family: 'Courier New', Courier, monospace;
-    color: snow;
-    background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.1));
-}
-.Names{
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 /* Hover / Focus Efektleri */
-.Methot:hover,
-.Search:hover,
-.Kategory:hover,
-.MethotBack:hover,
-.MethotInfo:hover,
-.DeleteBtn:hover,
-.AddBtn:hover{
+.Search:hover{
     border: 1px solid white;
     color: white;
     box-shadow: 0 0 5px whitesmoke;
     cursor: pointer;
 }
-.Methot:focus,
-.Search:focus,
-.Kategory:focus,
-.MethotBack:focus,
-.MethotInfo:focus{
+.Search:focus{
     background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
     border-color: white;
     box-shadow: 0 0 10px white;
@@ -213,70 +145,6 @@ hr{
 .Search:focus{
   width: 80%;
   transition: .2s ease-in-out;
-}
-.MethotBack:focus{
-    background: linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.9));
-}
-/* İşlem Butonları */
-.DeleteBtn,
-.AddBtn{
-    width: 100px;
-    height: 30px;
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 25px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-    background: rgba(200,200,200,0.1);
-    transition: border 0.3s ease-in-out;
-}
-/* ==================== LAYOUT ==================== */
-.Container{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-}
-.ClassRow{
-    display: grid;
-    align-items: center;
-    grid-template-columns: 2fr 3fr 2fr; /* ortadaki geniş */
-    gap: 10px;
-}
-.ContentRow{
-    display: grid;
-    grid-template-columns: 2fr 0.2fr 2fr; /* ortadaki dar */
-    gap: 1%;
-}
-.ButtonsRow{
-    display: grid;
-    grid-template-columns: auto 2fr auto; /* sol - span - sağ */
-    gap: 10px;
-    align-items: center;
-}
-/* ==================== SCROLLBAR ==================== */
-.MethotBack::-webkit-scrollbar,
-.MethotInfo::-webkit-scrollbar{
-    width: 10px;
-    cursor: pointer;
-}
-.MethotBack::-webkit-scrollbar-thumb,
-.MethotInfo::-webkit-scrollbar-thumb{
-    background: linear-gradient(135deg, rgba(125,125,125,0.1), rgba(125,125,125,0.9));
-    border: 1px solid white;
-    border-radius: 30px 90px 90px 30px;
-    cursor: grab;
-}
-.MethotBack::-webkit-scrollbar-thumb:hover,
-.MethotInfo::-webkit-scrollbar-thumb:hover{
-    background: linear-gradient(135deg, rgba(125,125,125,0.3), rgba(125,125,125,1));
-}
-.MethotBack::-webkit-scrollbar-corner,
-.MethotBack::-webkit-resizer,
-.MethotInfo::-webkit-scrollbar-corner,
-.MethotInfo::-webkit-resizer{
-    background: linear-gradient(135deg, rgba(125,125,125,0.1), rgba(125,125,125,0.9));
-    border: 1px solid white;
-    border-radius: 90px 50px 0 50px;
-    transition: 0.3s;
 }
 /* ==================== Search Alanı ==================== */
 .Searchs{
@@ -331,7 +199,4 @@ hr{
     border-top: whitesmoke solid 0px;
     border-bottom: whitesmoke solid 1px  ;
     border-radius: 0 0 100px 100px ;
-}
-.HiddenDiv{
-    background-color: red;
 }
