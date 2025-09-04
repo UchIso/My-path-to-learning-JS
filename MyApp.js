@@ -54,17 +54,18 @@ function SameDivsFunc(){
     const SameClass=[]
 
     AllClass.forEach(ClassDiv =>{
-    
-        const ClassID = ClassDiv.id
-        if(!SameClass[ClassID]){
-            SameClass[ClassID]=[]
-        }
-        SameClass[ClassID].push(ClassDiv)
+            const ClassID = ClassDiv.id
+            if(!SameClass[ClassID]){
+                SameClass[ClassID]=[]
+            }
+            SameClass[ClassID].push(ClassDiv)
+        console.log(ClassDiv);
     })
-    
     for(const ID in SameClass){
+        console.log(ID);
+        // if()
         if(SameClass.hasOwnProperty(ID)){
-
+            
             const SameDiv = allDivs.appendChild(document.createElement("div"))
             SameDiv.id = ID
             SameDiv.className = "SameDivs"
@@ -262,33 +263,19 @@ function ListOption(){
 
 function AddListener(){
     
-    const ClassName = document.getElementById("Kategory")
-    const MethodName = document.getElementById("Methot")
+    const ClassName = document.getElementById("Kategory").value
+    const MethodName = document.getElementById("Methot").value
     const InfoContent = document.getElementById("MethotInfo")
     const ReturnContent = document.getElementById("MethotBack")
-    console.log(typeof ClassName.value);
-    console.log(MethodName.value);
-    console.log(InfoContent.value);
-    console.log(ReturnContent.value);
-    CreateElementFunc("div",ClassName.value,"ClassDiv",MethodName.value)
-    CreateElementFunc("div",ClassName.value,"InfoDiv",MethodName.value)
-    CreateElementFunc("div",ClassName.value,"ReturnDiv",MethodName.value)
-    Name = ClassName.value
-    Method = MethodName.value
-    console.log(Name);
-    console.log(Method);
+    CreateElementFunc("div",ClassName,"ClassDiv",MethodName)
+    CreateElementFunc("div",ClassName,"InfoDiv",MethodName)
+    CreateElementFunc("div",ClassName,"ReturnDiv",MethodName)
+SameDivsFunc()
+
 }
-
-let Name
-let Method
-
 const addBtn = document.getElementById("AddBtn")
 addBtn.addEventListener("click",AddListener)
-    
-if(Name !== undefined && Method !== undefined){
-    console.log(Name);
-    console.log(Method);
-}
+
 CreateElementFunc("div",'String','ClassDiv','Trim')
 CreateElementFunc("div",'String','InfoDiv','Trim')
 CreateElementFunc("div",'String','ReturnDiv','Trim')
@@ -308,5 +295,3 @@ SameDivsFunc()
 SeacrhNameFunc(allDivs.querySelector(".SearchName"))
 SeacrhMethotFunc(allDivs.querySelector(".SearchMethot"))
 ListOption()
-
-
