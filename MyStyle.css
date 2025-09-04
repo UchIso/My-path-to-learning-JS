@@ -28,6 +28,7 @@ hr{
     border-radius: 10px;
     box-shadow: 0 0 5.5px whitesmoke;
 }
+.Patterns{height: 0px;}
 .PatternM{ width: 200px; }
 .Indicator{ background: linear-gradient(135deg, rgba(46,46,46,0.5), rgba(0,0,0,0.7)); }
 .ClassHr{ margin: 50px; }
@@ -135,6 +136,7 @@ hr{
 /* ==================== BUTON & BİLGİ KUTULARI ==================== */
 .Search,
 .Kategory,
+.Methot,
 .MethotBack,
 .MethotInfo{
     border-radius: 20px;
@@ -142,6 +144,7 @@ hr{
     transition: .3s ease-in-out;
 }
 .Kategory,
+.Methot,
 .MethotBack,
 .MethotInfo{
     min-width: 250px;
@@ -158,6 +161,15 @@ hr{
     background: linear-gradient(135deg, rgba(110,110,110,0.7), rgba(110,110,110,0));
     border: 1px solid rgba(255,255,255,0.1);
 }
+.Methot{
+    width: 85%;
+    font-size: 15px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(90,90,90,0.7), rgba(200,200,200,0));
+    border-top: none;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius:0px 0px 25px 25px;
+}
 .MethotInfo{
     max-width: 900px;
     background: linear-gradient(135deg, rgba(46,46,46,0.1), rgba(46,46,46,0.5));
@@ -169,7 +181,14 @@ hr{
     color: snow;
     background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.1));
 }
+.Names{
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 /* Hover / Focus Efektleri */
+.Methot:hover,
 .Search:hover,
 .Kategory:hover,
 .MethotBack:hover,
@@ -181,6 +200,7 @@ hr{
     box-shadow: 0 0 5px whitesmoke;
     cursor: pointer;
 }
+.Methot:focus,
 .Search:focus,
 .Kategory:focus,
 .MethotBack:focus,
@@ -217,6 +237,7 @@ hr{
 }
 .ClassRow{
     display: grid;
+    align-items: center;
     grid-template-columns: 2fr 3fr 2fr; /* ortadaki geniş */
     gap: 10px;
 }

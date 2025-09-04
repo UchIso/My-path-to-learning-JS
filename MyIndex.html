@@ -11,18 +11,20 @@
 <body>
     <div id="allDivs" class="allDivs">
         <div class="AdderSet" id="AdderSet">
-            
             <div class="Container" id="Container">
                 
                 <div class="ClassRow">
-                    <hr id="PatternL">
-                    <input id="Kategory" class="Kategory" type="text" placeholder="Class Name">
-                    <hr id="PatternR">
+                    <hr id="PatternL" class="Patterns">
+                    <div id="Names" class="Names">
+                        <input id="Kategory" class="Kategory" type="text" placeholder="Class Name">
+                        <input id="Methot" class="Methot" type="text" placeholder="Methot Name">
+                    </div>
+                    <hr id="PatternR" class="Patterns">
                 </div>
                 
                 <div class="ContentRow">
                     <textarea placeholder="Code" class="MethotInfo" id="MethotInfo">I need this:
-Adder   ,   Cheker  ,   Deleter  ,   More Info    ,   CSS Update  ,   More Color ,   Local Stoarage
+                        Adder   ,   Cheker  ,   Deleter  ,   More Info    ,   CSS Update  ,   More Color ,   Local Stoarage
                     </textarea>
                     <hr class="Indicator">
                     <textarea placeholder="Returned" class="MethotBack" id="MethotBack"></textarea>
@@ -37,13 +39,13 @@ Adder   ,   Cheker  ,   Deleter  ,   More Info    ,   CSS Update  ,   More Color
             </div>
             
         </div>
-            <div id="Searchs" class="Searchs">
-
-                <input id="Search" class="SearchName" list="NameList" type="text" placeholder="Class Name">
-                    <datalist id="NameList"></datalist>
-                <input id="Search" class="SearchMethot" list="MethotList" type="text" placeholder="Methot Name">
-                    <datalist id="MethotList"></datalist>
-            </div>
+        <div id="Searchs" class="Searchs">
+            
+            <input id="Search" class="SearchName" list="NameList" type="text" placeholder="Class Name">
+            <datalist id="NameList"></datalist>
+            <input id="Search" class="SearchMethot" list="MethotList" type="text" placeholder="Methot Name">
+            <datalist id="MethotList"></datalist>
+        </div>
         <hr>
     </div>    
     <script src="MyApp.js"></script>

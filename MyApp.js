@@ -1,6 +1,7 @@
 const allDivs = document.getElementById("allDivs")
 
-let CreateElementFunc = function (Type , IdName , Class , MethodName) {
+function CreateElementFunc(Type , IdName , Class , MethodName) {
+
     let ElementTag = allDivs.appendChild(document.createElement(Type))
     ElementTag.id = IdName
     ElementTag.classList.add(Class,MethodName)
@@ -253,13 +254,41 @@ function ListOption(){
 
         const MethotClass = ClassDiv.classList[1]
         const MethotOption = MethotList.appendChild(document.createElement("option"))
-
-        MethotOption.id = "MethotSeacrh"
-        MethotOption.classList.add("MethotOption",MethotClass)
-        MethotOption.textContent = MethotClass
+            MethotOption.id = "MethotSeacrh"
+            MethotOption.classList.add("MethotOption",MethotClass)
+            MethotOption.textContent = MethotClass
     })
 }
 
+function AddListener(){
+    
+    const ClassName = document.getElementById("Kategory")
+    const MethodName = document.getElementById("Methot")
+    const InfoContent = document.getElementById("MethotInfo")
+    const ReturnContent = document.getElementById("MethotBack")
+    console.log(typeof ClassName.value);
+    console.log(MethodName.value);
+    console.log(InfoContent.value);
+    console.log(ReturnContent.value);
+    CreateElementFunc("div",ClassName.value,"ClassDiv",MethodName.value)
+    CreateElementFunc("div",ClassName.value,"InfoDiv",MethodName.value)
+    CreateElementFunc("div",ClassName.value,"ReturnDiv",MethodName.value)
+    Name = ClassName.value
+    Method = MethodName.value
+    console.log(Name);
+    console.log(Method);
+}
+
+let Name
+let Method
+
+const addBtn = document.getElementById("AddBtn")
+addBtn.addEventListener("click",AddListener)
+    
+if(Name !== undefined && Method !== undefined){
+    console.log(Name);
+    console.log(Method);
+}
 CreateElementFunc("div",'String','ClassDiv','Trim')
 CreateElementFunc("div",'String','InfoDiv','Trim')
 CreateElementFunc("div",'String','ReturnDiv','Trim')
@@ -275,10 +304,9 @@ CreateElementFunc("div",'Array','ReturnDiv','Push')
 CreateElementFunc("div",'Array','ClassDiv','Find')
 CreateElementFunc("div",'Array','InfoDiv','Find')
 CreateElementFunc("div",'Array','ReturnDiv','Find')
-CreateElementFunc("div",'Arr','ClassDiv','Find')
-CreateElementFunc("div",'Arr','InfoDiv','Find')
-CreateElementFunc("div",'Arr','ReturnDiv','Find')
 SameDivsFunc()
 SeacrhNameFunc(allDivs.querySelector(".SearchName"))
 SeacrhMethotFunc(allDivs.querySelector(".SearchMethot"))
 ListOption()
+
+
